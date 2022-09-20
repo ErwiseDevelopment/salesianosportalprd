@@ -53,11 +53,6 @@
                     <div class="row">
 
                         <div class="col-md-3 d-flex justify-content-center align-items-center u-bg-folk-white"> 
-                            <!-- <img
-                            class="img-fluid"
-                            src="<php echo get_template_directory_uri()>/../wp-bootstrap-starter-child/assets/images/top-logo.png"
-                            alt=""> -->
-
                             <a href="<?php echo get_home_url( null, '/') ?>">
                                 <img
                                 class="img-fluid"
@@ -120,33 +115,106 @@
                                                 </a>
                                             </li>
                                         <?php endif; ?>
+
+                                        <li class="l-top__social-media__item d-flex justify-content-center align-items-center u-cursor-pointer js-show-form-search mx-1">
+                                            <span class="u-icon__free u-icon__search u-font-size-0 before::u-font-size-20 u-font-weight-semibold text-decoration-none u-color-folk-primary">
+                                                Pesquisa
+                                            </span>
+                                        </li>
                                     </ul>
 
                                     <p class="l-top__contact u-font-weight-semibold text-white mt-3 mt-md-0 mb-0 ml-3">
                                         <!-- contatos@dombosco.net // (51) 3331-7939 -->
                                         <?php echo get_field( 'e-mail', 'option' ) . ' // ' . get_field( 'telefone', 'option' ); ?>
                                     </p>
-                                </div>
 
-                                <div class="col-12 d-flex justify-content-center align-items-center mt-5">
-                                    <!-- <img
-                                    class="img-fluid"
-                                    src="<php echo get_template_directory_uri()>/../wp-bootstrap-starter-child/assets/images/top-logo-salesianos-sul.png"
-                                    alt=""> -->
-                                    <a href="<?php echo get_home_url( null, '/' ) ?>">
-                                        <img
-                                        class="img-fluid"
-                                        src="<?php echo get_field( 'logo_principal_no_topo', 'option' ) ?>"
-                                        alt="<?php echo get_bloginfo( 'name' ) ?>">
-                                    </a>
+                                    <div class="mt-3 px-5">
+                                        
+                                        <?php if(get_field( 'visivel', 'option' ) == 'Sim') : ?>
+                                                <a
+                                                class="d-block hover:u-opacity-8 u-font-size-14 u-font-weight-bold text-center text-decoration-none py-2 px-4"
+                                                style="color:<?php echo get_field( 'cor', 'option' ) ?>;background-color:<?php echo get_field( 'cor_de_fundo', 'option' ) ?>"
+                                                href="<?php echo get_field( 'link_do_botao', 'option' ) ?>"
+                                                <?php if(get_field( 'abrir_em_uma_nova_guia', 'option') == 'Sim') : ?>
+                                                    target="_blank"
+                                                <?php endif; ?>
+                                                >
+                                                    <?php echo get_field( 'texto', 'option' ) ?>
+                                                </a>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="col-12 d-flex justify-content-center align-items-center mt-5">
+                                <!-- <img
+                                class="img-fluid"
+                                src="<php echo get_template_directory_uri()>/../wp-bootstrap-starter-child/assets/images/top-logo-salesianos-sul.png"
+                                alt=""> -->
+                                <a href="<?php echo get_home_url( null, '/' ) ?>">
+                                    <img
+                                    class="img-fluid"
+                                    src="<?php echo get_field( 'logo_principal_no_topo', 'option' ) ?>"
+                                    alt="<?php echo get_bloginfo( 'name' ) ?>">
+                                </a>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="col-10">
+                    
+                    <div class="d-none js-form-box mt-5">
+
+                        <form method="GET" action="<?php echo get_home_url( null, '/' ) ?>">
+                        
+                            <div class="row">
+
+                                <div class="col-lg-9">
+                                    <input
+                                    class="w-100 shadow border-0 d-block u-font-size-14 u-font-weight-regular u-font-style-iltalic py-2 px-3"
+                                    type="search"
+                                    name="s"
+                                    placeholder="Pesquisar...">
+                                </div>
+
+                                <div class="col-lg-2 mt-3 mt-lg-0 pr-0">
+                                    <input
+                                    class="w-100 shadow border-0 rounded d-block u-font-size-14 u-font-weight-regular u-font-style-iltalic u-color-folk-white u-bg-folk-primary py-2 px-3"
+                                    type="submit"
+                                    value="Pesquisar">                      
+                                </div>
+
+                                <div class="col-1 d-none d-lg-flex justify-content-center align-items-center pl-0">
+                                    <span class="u-font-weight-bold text-center u-cursor-pointer js-close-form" style="font-size:26px">
+                                        x
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        if( document.querySelector( '.js-show-form-search' ) ) {
+            const activeForm = document.querySelector( '.js-show-form-search' )
+            const box = document.querySelector( '.js-form-box' )
+            const close = document.querySelector( '.js-close-form' ) 
+
+            activeForm.addEventListener( 'click', function() {
+                box.classList.add( 'd-block' )
+                box.classLis.remove( 'd-none' )
+            })
+
+            close.addEventListener( 'click', function() {
+                box.classList.remove( 'd-block' )
+                box.classLis.add( 'd-none' )
+            })
+        }
+    </script>
     <!-- end top -->
 
     <header id="masthead" class="l-header header site-header navbar-static-top u-border-top-2 u-border-color-secondary my-5 pt-5 <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">

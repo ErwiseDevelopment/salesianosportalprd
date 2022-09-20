@@ -194,7 +194,7 @@ add_filter('rest_prepare_post', 'my_filter_post', 10, 3);
 
 function my_filter_post($data, $post, $context) {
     $data->data['post_date'] = get_the_date( 'd/m/Y', $post->ID );
-    $data->data['post_author'] = get_the_author_meta('user_firstname', $author_id) . ' ' . get_the_author_meta( 'user_lastname', $author_id);
+    $data->data['post_author'] = get_the_author_meta('user_firstname') . ' ' . get_the_author_meta( 'user_lastname');
     $data->data['post_excerpt'] = limit_words(get_the_excerpt(), 25);
     
     $editorias = array(
@@ -345,21 +345,22 @@ function logoadmin() {
     }
     add_action("login_head", "logoadmin");
     
+    
+function get_date_format( $date ) {
+    list($data_day, $data_month, $data_year) = explode('/', $date); 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $months = array(
+        '01' => 'janeiro',
+        '02' => 'fevereiro',
+        '03' => 'março',
+        '04' => 'abril',
+        '05' => 'maio',
+        '06' => 'junho',
+        '07' => 'julho',
+        '08' => 'agosto',
+        '09' => 'setembro',
+        '10' => 'outubro',
+        '11' => 'novembro',
+        '12' => 'dezembro',
+    );
+}

@@ -92,6 +92,9 @@
                                               <p class="l-footer__text u-font-weight-semibold text-center text-md-left u-color-folk-white"><a href="https://dombosco.net/politica-de-privacidade">
                                                   Politica de Privacidade </a>
                                                   </p>
+                                                  <p class="l-footer__text u-font-weight-semibold text-center text-md-left u-color-folk-white"><a href="https://antigo.dombosco.net/">
+                                                  Site antigo </a>
+                                                  </p>
                                         </div>
 
                                         <div class="col-12 mt-2">

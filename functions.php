@@ -75,70 +75,70 @@ function add_thumbnail_to_JSON() {
 * ACF, Image and Category Data in Post Object Response
 */
 
-function register_featured_image_api_field()
-{
-    register_rest_field('ebook', 'featured_image',
-        array(
-            'get_callback' => 'get_featured_image_api_field',
-            'schema' => null,
-        )
-    );
+// function register_featured_image_api_field()
+// {
+//     register_rest_field('ebook', 'featured_image',
+//         array(
+//             'get_callback' => 'get_featured_image_api_field',
+//             'schema' => null,
+//         )
+//     );
 
-    register_rest_field('ebook', 'archive_download',
-        array(
-            'get_callback' => 'get_archive_download_api_field',
-            'schema' => null,
-        )
-    );
+//     register_rest_field('ebook', 'archive_download',
+//         array(
+//             'get_callback' => 'get_archive_download_api_field',
+//             'schema' => null,
+//         )
+//     );
 
-    register_rest_field('ebook', 'category',
-        array(
-            'get_callback' => 'get_category_api_field',
-            'schema' => null,
-        )
-    );
-}
-add_action('rest_api_init', 'register_featured_image_api_field' );
+//     register_rest_field('ebook', 'category',
+//         array(
+//             'get_callback' => 'get_category_api_field',
+//             'schema' => null,
+//         )
+//     );
+// }
+// add_action('rest_api_init', 'register_featured_image_api_field' );
 
-function get_featured_image_api_field($post_id)
-{
-    return get_the_post_thumbnail_url(null, 'post-thumb-small');
-}
+// function get_featured_image_api_field($post_id)
+// {
+//     return get_the_post_thumbnail_url(null, 'post-thumb-small');
+// }
 
-function get_archive_download_api_field($post_id) {
-    return get_field( 'arquivo' );
-}
+// function get_archive_download_api_field($post_id) {
+//     return get_field( 'arquivo' );
+// }
 
-function get_category_api_field($post_id) {
-    // $args = array(
-    //     'posts_per_page' => -1,
-    //     'post_type' => 'ebook'
-    // );
+// function get_category_api_field($post_id) {
+//     // $args = array(
+//     //     'posts_per_page' => -1,
+//     //     'post_type' => 'ebook'
+//     // );
 
-    // $ebooks = new WP_Query( $args );
-    // $categories = array();
+//     // $ebooks = new WP_Query( $args );
+//     // $categories = array();
 
-    // if( $ebooks->have_posts() ) :
-    //     while( $ebooks->have_posts() ) : $ebooks->the_post();  
-    //         foreach( get_the_terms($post->ID, 'ebook-categoria') as $cat ) {
-    //             //array_push($categories, $cat->name);
-    //             echo "<pre>";
-    //             var_dump($cat->name);
-    //             echo "</pre>";
-    //             add_category_api_field( $cat->name );
-    //         } 
-    //     endwhile;
-    // endif;
+//     // if( $ebooks->have_posts() ) :
+//     //     while( $ebooks->have_posts() ) : $ebooks->the_post();  
+//     //         foreach( get_the_terms($post->ID, 'ebook-categoria') as $cat ) {
+//     //             //array_push($categories, $cat->name);
+//     //             echo "<pre>";
+//     //             var_dump($cat->name);
+//     //             echo "</pre>";
+//     //             add_category_api_field( $cat->name );
+//     //         } 
+//     //     endwhile;
+//     // endif;
 
-    // return $categories;
+//     // return $categories;
 
-    $categories = array();
-    foreach( get_the_terms($post->ID, 'ebook-categoria') as $cat ) {
-        array_push($categories, $cat->name);
-    }
+//     $categories = array();
+//     foreach( get_the_terms($post->ID, 'ebook-categoria') as $cat ) {
+//         array_push($categories, $cat->name);
+//     }
 
-    return $categories;
-}
+//     return $categories;
+// }
 
 function add_category_api_field( $categories ) {
     return $categories;

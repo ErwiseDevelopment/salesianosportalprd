@@ -89,11 +89,11 @@
                                                 <?php echo get_field( 'e-mail', 'option' ) ?> <br>
                                                 <?php echo get_field( 'telefone', 'option' ) ?>
                                             </p>
-                                              <p class="l-footer__text u-font-weight-semibold text-center text-md-left u-color-folk-white"><a href="https://dombosco.net/politica-de-privacidade">
+                                              <p class="l-footer__text u-font-weight-semibold text-center text-md-left u-color-folk-white"><a href="https://dombosco.net/politica-de-privacidade" target="_blank">
                                                   Politica de Privacidade </a>
                                                   </p>
-                                                  <p class="l-footer__text u-font-weight-semibold text-center text-md-left u-color-folk-white"><a href="https://antigo.dombosco.net/">
-                                                  Site antigo </a>
+                                                  <p class="l-footer__text u-font-weight-semibold text-center text-md-left u-color-folk-white"><a href="https://antigo.dombosco.net/" target="_blank">
+                                                  Visite o site antigo </a>
                                                   </p>
                                         </div>
 

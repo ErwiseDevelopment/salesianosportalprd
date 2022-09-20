@@ -1,0 +1,116 @@
+$layout-name: 'l-navbar';
+
+.#{$layout-name} {
+    .nav-item {
+        @media screen and (max-width: 991px) {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__icon {
+        margin: 0 .5rem;
+
+        &.institucional {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-institucional.png); 
+                }
+            }
+        }
+
+        &.paroquias {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-paroquias.png); 
+                }
+            }
+        }
+
+        &.animacao {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-animacao.png); 
+                }
+            }
+        }
+
+        &.ensino {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-ensino.png); 
+                }
+            }
+        }
+
+        &.pastoral {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-pastoral.png); 
+                }
+            }
+        }
+
+        &.grafica {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-grafica.png); 
+                }
+            }
+        }
+
+        &.obras {
+            .nav-link {
+                &::before {
+                    background-image: url(../images/icon-obras.png); 
+                }
+            }
+        }
+    }
+
+    .nav-link {
+        line-height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 600;
+        text-align: center;
+
+        &::before {
+            content: '';
+            width: 110px;
+            height: 110px;
+            margin-bottom: .5rem;
+            transform: translateY(0);
+            transition: all .2s;
+            border-radius: 50%;
+            overflow: hidden;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        &:hover {
+            &::before {
+                transform: translateY(-10px);
+                opacity: .8;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        outline: none !important;
+    }
+
+    &__hamburger {
+         
+        &::before {
+            content: '\f0c9';
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
+            color: $color-folk-black !important;
+        }
+    }
+}

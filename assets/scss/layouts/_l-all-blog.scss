@@ -1,0 +1,7 @@
+$layout-name: 'l-all-blog';
+
+.#{$layout-name} {
+    &__card-img {
+        height: 145px;
+    }
+}

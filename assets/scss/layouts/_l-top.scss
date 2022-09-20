@@ -1,0 +1,43 @@
+$layout-name: 'l-top';
+
+.#{$layout-name} {
+    &::before {
+        content: '';
+        width: 100%;
+        height: 90px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: $color-folk-primary !important;
+    }
+
+    &__social-media {
+        &__item {
+            width: 44px;
+            height: 44px;
+            transition: all .2s;
+            border-radius: 50%;
+            background-color: $color-folk-white;
+
+            &:hover {
+                background-color: #C12811 !important;
+
+                * {
+                    color: $color-folk-white !important;
+                }
+            }
+        }
+    }
+
+    &__contact {
+        font-size: 1rem;
+        
+        @media screen and (min-width: 1600px) {
+            font-size: 1.25rem;
+        }
+
+        @media screen and (max-width: 767px) {
+            font-size: .75rem;
+        }
+    }
+}

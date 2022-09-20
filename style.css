@@ -1,0 +1,31 @@
+/*
+Theme Name: WP Bootstrap Starter Child
+Theme URI: https://afterimagedesigns.com/wp-bootstrap-starter/
+Author: Fabio Messias
+Author URI: https://afterimagedesigns.com/
+Description:  WP Bootstrap Starter Child
+Version: 1.0.0
+Template: wp-bootstrap-starter
+License URI: LICENSE
+Text Domain: wp-bootstrap-starter-child
+*/
+body::-webkit-scrollbar {
+    width: 15px;               
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #DBDBDB;        
+}   
+
+body::-webkit-scrollbar-thumb {
+    border: 3px solid #DBDBDB;
+    border-radius: 20px;   
+    background-color: #888;    
+}
+
+/* home shortcut */
+@media screen and (min-width: 1600px) {
+	.l-shortcut .container {
+		max-width: 1400px !important;
+	}	
+}

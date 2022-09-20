@@ -1,0 +1,53 @@
+$utility-name: 'u-color-folk';
+
+.#{$utility-name} {
+    &-black {
+        color: $color-folk-black !important;
+    }
+    
+    &-blue {
+        color: $color-folk-blue !important;
+    }
+    
+    &-cyan {
+        color: $color-folk-cyan !important;
+    }
+
+    &-green {
+        color: $color-folk-green !important;
+    }
+
+    &-pattern {
+        color: $color-folk-pattern !important;
+    }
+    
+    &-primary {
+        color: $color-folk-primary !important;
+    }
+
+    &-purple {
+        color: $color-folk-purple !important;
+    }
+
+    &-red {
+        color: $color-folk-red !important;
+    }
+
+    &-secondary {
+        color: $color-folk-secondary !important;
+    }
+
+    &-white {
+        color: $color-folk-white !important;
+    }
+}
+
+.hover\: {
+    &#{$utility-name} {
+        &-white {
+            &:hover {
+                color: $color-folk-white !important;
+            }
+        }
+    }
+}

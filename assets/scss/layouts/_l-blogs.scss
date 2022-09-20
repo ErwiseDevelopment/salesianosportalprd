@@ -1,0 +1,53 @@
+$layout-name: 'l-blogs';
+
+.#{$layout-name} {
+    border-top: 2px solid $color-folk-secondary !important;
+    
+    &__card-img {
+        height: 242px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        font-size: 1rem;
+
+        @media screen and (max-width: 767px) {
+            font-size: .875rem;
+        }
+    }
+
+    &__card-title {
+        font-size: 1.375rem;
+
+        @media screen and (min-width: 1600px) {
+            font-size: 1.9375rem;
+        }
+    }
+
+    &__card-text {
+        font-size: 1.0625rem;
+
+        @media screen and (min-width: 1600px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__read-more {
+        @media screen and (min-width: 1600px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__btn-more-content {
+        font-size: 1.5rem;
+
+        @media screen and (min-width: 1600px) {
+            font-size: 2.125rem;
+        }
+    }
+}

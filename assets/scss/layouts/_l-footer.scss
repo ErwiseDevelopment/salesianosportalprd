@@ -1,0 +1,15 @@
+$layout-name: 'l-footer';
+
+.#{$layout-name} {
+    &__text {
+        font-size: 1rem;
+        
+        @media screen and (min-width: 1600px) {
+            font-size: 1.3125rem;
+        }
+
+        * {
+            color: $color-folk-white !important;
+        }
+    }
+}

@@ -92,12 +92,13 @@ href="<?php the_permalink() ?>">
 					Irmã Criciele, Irmã Gabriele, [...] -->
 					<?php the_excerpt(); ?>
 				</span>
-
-				<p
-				class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5"
-				href="#">
+				<div class="col-md-6 mt-3">
+					<p
+					class="l-news__highlight__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-3 px-5"
+					style="background-color:<?php echo $backgroundColor ? $backgroundColor : '#0B4DAD!important'; ?>">					
 					Ler mais
-				</p>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>

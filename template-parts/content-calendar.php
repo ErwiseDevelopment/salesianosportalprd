@@ -16,8 +16,136 @@
                 </div>
             </div>
 
-      
-        
+            <div class="col-12">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <!-- swiper -->
+                        <?php
+                            $year_current = date( "Y" );
+
+                            $array_meses = array (
+                                '01' => 'Janeiro',
+                                '02' => 'Fevereiro',
+                                '03' => 'Março',
+                                '04' => 'Abril',
+                                '05' => 'Maio',
+                                '06' => 'Junho',
+                                '07' => 'Julho',
+                                '08' => 'Agosto',
+                                '09' => 'Setembro',
+                                '10' => 'Outubro',
+                                '11' => 'Novembro',
+                                '12' => 'Dezembro'
+                            );
+                            
+                        ?>
+                        <div class="swiper-container js-swiper-month">
+
+                            <div class="swiper-wrapper">
+
+                                <?php foreach ($array_meses as $mes => $meses): ?>
+                                    <div class="swiper-slide">
+
+                                        <h6 class="l-calendar__date u-font-weight-black text-center text-uppercase u-color-folk-primary">
+                                            <!-- Agosto // 2021 -->
+                                            <?php echo $meses . ' // ' . $year_current; ?>
+                                        </h6>
+                                    </div>
+                                <?php endforeach; ?>                                
+
+                                <!-- <div class="swiper-slide">
+
+                                    <h6 class="l-calendar__date u-font-weight-black text-center text-uppercase u-color-folk-primary">
+                                        Setembro // 2021
+                                    </h6>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- end swiper -->
+
+                        <!-- arrow -->
+                        <div class="swiper-button-prev swiper-button-prev-calendar js-swiper-button-prev-calendar js-swiper-find-month-active"></div>
+                        <div class="swiper-button-next swiper-button-next-calendar js-swiper-button-next-calendar js-swiper-find-month-active"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 mt-4">
+
+                <!-- swiper -->
+                <div class="swiper-container swiper-container-day js-swiper-day">
+
+                    <div class="swiper-wrapper">
+                        
+                        
+                                    <div class="swiper-slide">
+
+                                        <div class="col my-3 my-md-0">
+
+                                            <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
+                                                destaques:
+                                            </h6>
+                                            <?php
+                                            			$data_atual = date('Ymd');
+
+                                                        $args = array (
+                                                            'post_type'       	=> 'agendas',
+                                                            'posts_per_page'	=> 2,
+                                                            'orderby'			=> 'meta_value',
+                                                            'order'				=> 'ASC',
+                                                            'meta_key'          => 'data_custom_post_agenda',
+                                                            'meta_query'		=> array (
+                                                                'relation'			=> 'AND',
+                                                                array (
+                                                                    'key'			=> 'data_custom_post_agenda',
+                                                                    'value'			=> $data_atual,
+                                                                    'compare'		=> '>=',
+                                                                    'type'			=> 'DATE',
+                                                                ),
+                                                            ),
+                                                        );
+
+                                                        $agendas = new WP_Query($args);
+
+                                            ?>
+                                                
+                                            <!-- loop -->
+                                            <?php if ( $agendas->have_posts() ) : ?>
+                                                    <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>
+                                                        <div class="my-2">
+                                                            <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
+                                                                <!-- // 02-03 -->
+                                                                <?php $date_agenda = get_field('data_custom_post_agenda_inicio', $post->ID); ?>
+                                                                <?php $split_date_blog = explode('/', $date_agenda); ?>
+                                                                // <?php echo $split_date_blog[0]; ?>.<?php echo $split_date_blog[1]; ?>
+                                                            </p>
+
+                                                            <p class="l-calendar__text u-font-weight-semibold mb-0">
+                                                                <!-- Conselho Inspetorial – Porto Alegre/RS -->
+                                                                <?php the_title(); ?>
+                                                            </p>
+
+                                            <!-- end loop -->
+                                            <?php endwhile; wp_reset_postdata(); ?>
+                                        </div>
+                                    </div>  
+						<?php   else : ?>
+                                    <div class="swiper-slide justify-content-start">
+                                        <p class="u-color-folk-white">
+                                            Não tem nenhum evento!
+                                        </p>
+                                    </div>
+                        <?php   endif;
+                            
+                        ?>
+                    </div>
+                </div>
+                
+                <!-- end swiper -->
+            </div>
 
             <div class="col-6 mt-4">
 
@@ -41,63 +169,84 @@
                                             array(
                                                     'taxonomy' => 'categoria-datas-especiais',
                                                     'field' => 'id',
-                                                    'terms' => 101,
+                                                    'terms' => 101,102,
                                             ),
                                         ),
                                     );
 
-                                    $aniversarios = new WP_Query($args);
+                                $aniversarios = new WP_Query($args);
 
-                                    while( $aniversarios->have_posts()) : $aniversarios->the_post();
-                                    ?>
+                                while( $aniversarios->have_posts()) : $aniversarios->the_post();
+                                ?>
 
                         <div class="swiper-slide flex-wrap align-items-start">
 
-                                        <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
-                                        <?php $title = get_the_title();?>
-                                        <?php $excerpt = get_the_excerpt();?>
-                                        <?php $permalink = get_the_permalink();?>
-                                        <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
-                                        <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'excerpt' => $excerpt, 'permalink' => $permalink); ?>
-                                        <?php endwhile; wp_reset_postdata();?>
-                                    <div class="col-12">
-                                    
-                                            <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
-                                                comemorações e memória:
-                                                <?php echo var_dump($current_year) ?>
-                                            </h6>
-                                                         
-                                                        <?php usort($array_calendarios, 'mantenedora_cmp');?>
-                                                        <?php $contador = 1; ?>
-                                                        <?php foreach ($array_calendarios as $calendario ) : ?>
-                                                            <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                        <!-- <php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) ;?> -->
-                                                            <div class="my-2">
-                                                                        <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
-                                                                            <!-- // 14 -->
-                                                                            // <?php echo $dia_data; ?>.<?php echo $mes_data; ?></p>
-                                                                        </p>
+                            
+                                <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
+                                <?php $title = get_the_title();?>
+                                <?php $excerpt = get_the_excerpt();?>
+                                <?php $permalink = get_the_permalink();?>
+                                <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
+                                <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'excerpt' => $excerpt, 'permalink' => $permalink); ?>
+                                <?php endwhile; wp_reset_postdata();?>
+                                <div class="col-12">
+                                
+                                <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
+                                    comemorações e memória:
+                                </h6>
+                                    <?php 
+                                        if (!empty ($array_calendarios)) :?>
+                                       
+                                        
+                                        <?php foreach ($array_calendarios as $calendario ) : ?>
+                                            <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
+                                        <?php if ($mes == $mes_data && $dia_data >= $dia ) ;?>
+                                                        <div class="my-2">
+                                                                    <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
+                                                                        <!-- // 14 -->
+                                                                        // <?php echo $dia_data; ?>.<?php echo $mes_data; ?></p>
+                                                                    </p>
 
-                                                                        <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                                            <!-- Nascimento | P. Ivo Poffo (1940) -->
-                                                                            <?php echo $calendario["title"]; ?>
-                                                                        </p>
-                                                            </div>
-                                                                <?php $contador++;?>
-                                                                <?php 
-                                                                    endforeach; 
-                                                              ?>
-                                                        <!-- end loop -->
-                                    </div>                                
-                                                       
-                                    
-                                                     
+                                                                    <p class="l-calendar__text u-font-weight-semibold mb-0">
+                                                                        <!-- Nascimento | P. Ivo Poffo (1940) -->
+                                                                        <?php echo $calendario["title"]; ?>
+                                                                    </p>
+                                                                </div>
+                                                    <!-- 
+                                                            else : $count_calendar++; 
+                                                                if( $count_calendar == $post_calendar_count_current ) {
+                                                                    $count_calendar = 0;
+                                                                    echo '<p>Não há eventos!</p>';
+                                                                }
+                                                    -->
+                                                    <?php $contador++;?>
+                                                    <?php 
+                                                        endforeach; 
+                                                    ?>
+                                                    <!-- end loop -->
+                                
+                                <!--   else : >
+                                            <div class="swiper-slide flex-column justify-content-start align-items-start">
+                                                <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
+                                                    comemorações e memória:
+                                                </h6>
+                                                <p>
+                                                    Não tem comemorações e memória!
+                                                </p>
+                                            </div> -->
+                                <?php   else : ?>
+                                            <div class="swiper-slide justify-content-start">
+                                                <p class="u-color-folk-white">
+                                                    Não tem nenhum evento!
+                                                </p>
+                                            </div>
+                                <?php   endif;?>
                         </div>
                     </div>
                 </div>
                 <!-- end swiper -->
             
-            
+            </div>
 
             <div class="col-12 mb-5 my-md-5">
 

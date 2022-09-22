@@ -254,7 +254,8 @@
                     </div>
                 </div>
                 <!-- end swiper -->
-            
+            </div>
+        </div>
             </div>
 
             <div class="col-12 mb-5 my-md-5">

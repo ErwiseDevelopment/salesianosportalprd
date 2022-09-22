@@ -246,7 +246,7 @@
                                             
                                             <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
                                                 comemorações e memória:
-                                                <?php echo var_dump($data, $mes, $mes_data) ?>
+                                                
                                              </h6>
 
                                             <!-- loop -->
@@ -260,7 +260,7 @@
                                                             <div class="my-2">
                                                                         <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                             <!-- // 14 -->
-                                                                            // <?php echo $dia_data; ?>.<?php echo $mes_data; ?></p>
+                                                                            // <?php echo $dia_data; ?>.<?php echo $mes; ?></p>
                                                                         </p>
 
                                                                         <p class="l-calendar__text u-font-weight-semibold mb-0">

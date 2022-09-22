@@ -210,7 +210,7 @@
                         
                                     <?php 
                                         $current_year = strftime('%Y', strtotime('today'));
-                                        $mes = date('m');
+                                        $mescurrent = date('m');
                                         $dia = date('d');
 
                                         $args = array(
@@ -256,11 +256,11 @@
                                                         <?php $contador = 1; ?>
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                                             <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) ;?>
+                                                        <?php if ($mescurrent == $mes_data && $dia_data >= $dia && $contador <= 5 ) ;?>
                                                             <div class="my-2">
                                                                         <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                             <!-- // 14 -->
-                                                                            // <?php echo $dia_data; ?>.<?php echo $mes; ?></p>
+                                                                            // <?php echo $dia_data; ?>.<?php echo $mes_data; ?></p>
                                                                         </p>
 
                                                                         <p class="l-calendar__text u-font-weight-semibold mb-0">

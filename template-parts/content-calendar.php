@@ -80,7 +80,59 @@
 
                     <div class="swiper-wrapper">
                         
-                        
+                        <?php 
+                            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                            date_default_timezone_set('America/Sao_Paulo');
+                                
+                            $post_agenda_count = wp_count_posts( 'agendas' );
+                            $post_agenda_count_current = intval( $post_agenda_count->publish );
+                            $count = -1;
+
+                            foreach ($array_meses as $mes => $meses): 
+                                $date_current = (string) $mes;
+                                $current_year = strftime('%Y', strtotime('today'));
+                                $data_inicio = date('Y'.$date_current.'01');
+                                $data_final = date('Y'.$date_current.'31');
+
+                                $args = array (
+                                    'post_type'       	=> 'agendas',
+                                    'posts_per_page'	=> -1,
+                                    'orderby'			=> 'meta_value',
+                                    'order'				=> 'ASC',
+                                    'meta_key'          => 'data_custom_post_agenda_inicio',
+                                    'meta_query'		=> array (
+                                        'relation'			=> 'AND',
+                                        array (
+                                            'key'			=> 'data_custom_post_agenda_inicio',
+                                            'value'			=> $data_inicio,
+                                            'compare'		=> '>=',
+                                            'type'			=> 'DATE',
+                                        ),
+                                        array (
+                                            'key'			=> 'data_custom_post_agenda_inicio',
+                                            'value'			=> $data_final,
+                                            'compare'		=> '<=',
+                                            'type'			=> 'DATE',
+                                        ),
+                                    ),
+                                );
+                                
+                                $agendas = new WP_Query($args);
+                                
+				                while( $agendas->have_posts()) : $agendas->the_post();
+                                    $data = get_field( 'data_custom_post_agenda_inicio', get_the_ID() );
+				                    $title = get_the_title();
+				                    $excerpt = get_the_excerpt();
+				                    $cidades = get_the_terms(get_the_ID(), 'agendacidade');
+				                    list($data_day, $data_month, $data_year) = explode("/", $data);
+				                    $array_agendas[] = array ( 'data' => $current_year.'-'.$data_month.'-'.$data_day, 'title' => $title, 'excerpt' => $excerpt, 'cidades' => $cidades );
+                                endwhile; 
+                                
+                                wp_reset_postdata();
+
+                                if ( !empty ( $array_agendas ) ) :
+                                    usort ( $array_agendas, 'mantenedora_cmp' );
+                        ?>
                                     <div class="swiper-slide">
 
                                         <div class="col my-3 my-md-0">
@@ -88,48 +140,51 @@
                                             <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
                                                 destaques:
                                             </h6>
-                                            <?php
-                                            			$data_atual = date('Ymd');
 
-                                                        $args = array (
-                                                            'post_type'       	=> 'agendas',
-                                                            'posts_per_page'	=> 5,
-                                                            'orderby'			=> 'meta_value',
-                                                            'order'				=> 'ASC',
-                                                            'meta_key'          => 'data_custom_post_agenda',
-                                                            'meta_query'		=> array (
-                                                                'relation'			=> 'AND',
-                                                                array (
-                                                                    'key'			=> 'data_custom_post_agenda',
-                                                                    'value'			=> $data_atual,
-                                                                    'compare'		=> '>=',
-                                                                    'type'			=> 'DATE',
-                                                                ),
-                                                            ),
-                                                        );
-
-                                                        $agendas = new WP_Query($args);
-
-                                            ?>
-                                                
                                             <!-- loop -->
-                                            <?php if ( $agendas->have_posts() ) : ?>
-                                                    <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>
+                                            <?php 
+												$count_item = 0;
+
+                                                foreach ( $array_agendas as $agenda ) :
+                                                    // echo "<pre>";
+                                                    // var_dump($agenda['data']);
+                                                    // echo "</pre>";
+                                                    list($data_year, $data_month, $data_day) = explode("-", $agenda['data']);
+													// $count_item++;
+													// echo  'Fora do if' . $count_item . '<br>';
+                                                    // echo 'Título: ' . $agenda['title'] . '<br>';
+                                                    // echo 'Month: ' . $data_month . '<br>';
+                                                    // echo 'Month current: ' . $data_current . '<br>';
+
+                                                    if ( $date_current == $data_month ) : 
+                                                        $count = 0;
+                                            ?>
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                 <!-- // 02-03 -->
-                                                                <?php $date_agenda = get_field('data_custom_post_agenda_inicio', $post->ID); ?>
-                                                                <?php $split_date_blog = explode('/', $date_agenda); ?>
-                                                                // <?php echo $split_date_blog[0]; ?>.<?php echo $split_date_blog[1]; ?>
+                                                                // <?php echo $data_day . '-' . $data_month; ?>
                                                             </p>
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">
                                                                 <!-- Conselho Inspetorial – Porto Alegre/RS -->
-                                                                <?php the_title(); ?>
+                                                                <?php echo $agenda["title"]; ?>
                                                             </p>
+                                                        </div>     
+                                            <?php 
+                                                    else : $count++; 
+                                                        if( $count == $post_agenda_count_current ) {
+                                                            $count = 0;
+                                                            echo '<p>Não há eventos!</p>';
+                                                        }
+                                            ?>
+                                            <?php   endif;
 
+                                                    if( $count_item == 5 )
+                                                        echo 'Count: ' . $count_item;
+                                                        // break;
+                                                endforeach; 
+                                            ?>
                                             <!-- end loop -->
-                                            <?php endwhile; wp_reset_postdata(); ?>
                                         </div>
                                     </div>  
 						<?php   else : ?>
@@ -139,11 +194,10 @@
                                         </p>
                                     </div>
                         <?php   endif;
-                            
+                            endforeach; 
                         ?>
                     </div>
                 </div>
-                
                 <!-- end swiper -->
             </div>
 

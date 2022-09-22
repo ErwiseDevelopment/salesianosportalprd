@@ -250,13 +250,11 @@
                                                                 </p>
                                                             </div>
                                                 <?php   endif;?>
-                        </div>
-                    </div>
+                    </div>                  
                 </div>
                 <!-- end swiper -->
             </div>
-        </div>
-            </div>
+            
 
             <div class="col-12 mb-5 my-md-5">
 
@@ -265,7 +263,7 @@
                     <div class="col-md-6">
                         <a
                         class="l-calendar__btn hover:u-opacity-8 d-block d-md-inline-block u-font-weight-bold text-decoration-none u-color-folk-white u-bg-folk-secondary mb-3 mb-md-0 py-3 px-4"
-                        href="#"
+                        href="<?php echo get_home_url( null, 'agenda' ) ?>"
                         data-aos="zoom-in">
                             Todos os eventos
                         </a>
@@ -274,7 +272,7 @@
                     <div class="col-md-6">
                         <a
                         class="l-calendar__btn hover:u-opacity-8 d-block d-md-inline-block u-font-weight-bold text-decoration-none u-color-folk-white u-bg-folk-secondary mt-3 mt-md-0 py-3 px-4"
-                        href="#"
+                        href="<?php echo get_home_url( null, 'comemoracoes-e-memoria' ) ?>"
                         data-aos="zoom-in">
                             Calendário completo
                         </a>

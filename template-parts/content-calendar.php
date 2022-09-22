@@ -41,7 +41,7 @@
                                             array(
                                                     'taxonomy' => 'categoria-datas-especiais',
                                                     'field' => 'id',
-                                                    'terms' => 101,102,
+                                                    'terms' => 101,
                                             ),
                                         ),
                                     );

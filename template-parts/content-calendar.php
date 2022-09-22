@@ -134,7 +134,7 @@
                                                             <div class="my-2">
                                                                         <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                             <!-- // 14 -->
-                                                                            // <?php echo var_dump( $dia); ?>.<?php echo var_dump( $mescurrent); ?>
+                                                                            // <?php echo var_dump( $dia_data); ?>.<?php echo var_dump( $mes_data); ?>
 
                                                                         <p class="l-calendar__text u-font-weight-semibold mb-0">
                                                                             <!-- Nascimento | P. Ivo Poffo (1940) -->

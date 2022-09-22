@@ -46,7 +46,7 @@
 
                             <div class="swiper-wrapper">
 
-                                <?php foreach ($array_meses as $mes1 => $meses): ?>
+                                <?php foreach ($array_meses as $mes => $meses): ?>
                                     <div class="swiper-slide">
 
                                         <h6 class="l-calendar__date u-font-weight-black text-center text-uppercase u-color-folk-primary">

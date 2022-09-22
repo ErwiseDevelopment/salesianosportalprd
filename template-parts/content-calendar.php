@@ -240,16 +240,15 @@
                                         <?php $permalink = get_the_permalink();?>
                                         <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
                                         <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'excerpt' => $excerpt, 'permalink' => $permalink); ?>
-                                       <?php endwhile; ?> 
+                                        <?php endwhile; wp_reset_postdata();?>
 
                                         <div class="col-12">
                                             
                                             <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
                                                 comemorações e memória:
-                                                
-                                            </h6>
+                                             </h6>
 
-                                            <!-- loop<php echo var_dump($data) ?> -->
+                                            <!-- loop -->
                                                     <?php 
                                                         if (!empty ($array_calendarios)) :?>
                                                         <?php usort($array_calendarios, 'mantenedora_cmp');?>

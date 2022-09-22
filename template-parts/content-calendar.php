@@ -93,7 +93,7 @@
 
                                                         $args = array (
                                                             'post_type'       	=> 'agendas',
-                                                            'posts_per_page'	=> 2,
+                                                            'posts_per_page'	=> 5,
                                                             'orderby'			=> 'meta_value',
                                                             'order'				=> 'ASC',
                                                             'meta_key'          => 'data_custom_post_agenda',
@@ -161,9 +161,9 @@
 
                                     $args = array(
                                         'post_type'       	=> 'datas-especiais',
-                                        'posts_per_page'	=> 6,
+                                        'posts_per_page'	=> -1,
                                         'orderby'			=> 'meta_value',
-                                        'order'				=> 'DSC',
+                                        'order'				=> 'ASC',
                                         'meta_key'          => 'data_inicio_custom_post_calendario',
                                         'tax_query' => array(
                                             array(
@@ -243,7 +243,7 @@
                                                 </p>
                                             </div>
                                 <?php   endif;?>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- end swiper -->

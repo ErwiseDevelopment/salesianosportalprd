@@ -64,6 +64,7 @@
                                     
                                             <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
                                                 comemorações e memória:
+                                                <?php echo var_dump($current_year) ?>
                                             </h6>
                                                             <?php 
                                                         if (!empty ($array_calendarios)) :?>

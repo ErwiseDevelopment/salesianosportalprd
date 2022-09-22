@@ -246,6 +246,7 @@
                                             
                                             <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
                                                 comemorações e memória:
+                                                <?php echo var_dump($data) ?>
                                             </h6>
 
                                             <!-- loop -->

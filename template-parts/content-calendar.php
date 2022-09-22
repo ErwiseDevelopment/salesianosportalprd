@@ -268,9 +268,8 @@
                                                                         </p>
                                                             </div>
                                                                 <?php $contador++;?>
-                                                                <?php 
-                                                                    endforeach; 
-                                                    ?>
+                                                        <?php endif; ?>
+					                                    <?php endforeach; ?>
                                                         <!-- end loop -->
                                         </div>
                                     </div>

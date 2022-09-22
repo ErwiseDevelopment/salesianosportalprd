@@ -66,8 +66,7 @@
                                                 comemorações e memória:
                                                 <?php echo var_dump($current_year) ?>
                                             </h6>
-                                                            <?php 
-                                                        if (!empty ($array_calendarios)) :?>
+                                                         
                                                         <?php usort($array_calendarios, 'mantenedora_cmp');?>
                                                         <?php $contador = 1; ?>
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
@@ -87,17 +86,12 @@
                                                                 <?php $contador++;?>
                                                                 <?php 
                                                                     endforeach; 
-                                                                ?>
+                                                              ?>
                                                         <!-- end loop -->
                                     </div>                                
-                                                        <?php   else : ?>
-                                                        <div class="swiper-slide justify-content-start">
-                                                            <p class="u-color-folk-white">
-                                                                Não tem nenhum evento!
-                                                            </p>
-                                                        </div>
+                                                       
                                     
-                                                        <?php   endif;?>
+                                                     
                         </div>
                     </div>
                 </div>

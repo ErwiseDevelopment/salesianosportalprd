@@ -71,7 +71,7 @@
                                                         <?php $contador = 1; ?>
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                                             <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) ;?>
+                                                        <!-- <php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) ;?> -->
                                                             <div class="my-2">
                                                                         <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                             <!-- // 14 -->

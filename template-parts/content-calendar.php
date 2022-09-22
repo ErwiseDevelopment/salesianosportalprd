@@ -240,7 +240,7 @@
                                         <?php $permalink = get_the_permalink();?>
                                         <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
                                         <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'excerpt' => $excerpt, 'permalink' => $permalink); ?>
-                                        <?php endwhile; wp_reset_postdata();?>
+                                        <!-- <php endwhile; wp_reset_postdata();?> -->
 
                                         <div class="col-12">
                                             

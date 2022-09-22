@@ -189,8 +189,8 @@
                                     </div>  
 						<?php   else : ?>
                                     <div class="swiper-slide justify-content-start">
-                                        <p class="u-color-folk-white">
-                                            Não tem nenhum evento!
+                                        <p class="u-color-folk-black">
+                                            Não tem nenhum evento!corno
                                         </p>
                                     </div>
                         <?php   endif;

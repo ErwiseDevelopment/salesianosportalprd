@@ -21,8 +21,8 @@
                 <div class="row">
 
                     <div class="col-lg-6">
-  <!-- swiper -->
-  <?php
+                    <!-- swiper -->
+                    <?php
                             $year_current = date( "Y" );
 
                             $array_meses = array (
@@ -224,7 +224,7 @@
                                                 <!-- <php usort($array_calendarios, 'mantenedora_cmp');?> -->
                                                 <?php $contador = 1; ?>
                                                 <?php foreach ($array_calendarios as $calendario ) : ?>
-                                                    <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
+                                                <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
                                                 <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) :;
                                             ?>
                                         <div class="my-2">
@@ -250,13 +250,13 @@
                                                                 </p>
                                                             </div>
                                                 <?php   endif;?>
+                        </div>
                     </div>
-                    
                 </div>
                 <!-- end swiper -->
             
             </div>
-            </div>
+            
 
             <div class="col-12 mb-5 my-md-5">
 

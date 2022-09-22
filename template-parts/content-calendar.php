@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-
+      
             <div class="col-6 mt-4">
 
                 <!-- swiper -->
@@ -96,7 +96,7 @@
 
                                 $args = array (
                                     'post_type'       	=> 'agendas',
-                                    'posts_per_page'	=> -1,
+                                    'posts_per_page'	=> 3,
                                     'orderby'			=> 'meta_value',
                                     'order'				=> 'ASC',
                                     'meta_key'          => 'data_custom_post_agenda_inicio',
@@ -208,58 +208,39 @@
 
                     <div class="swiper-wrapper">
                         
-                        <?php 
-                            $count_calendar = -1;
-                            $post_calendar_count = wp_count_posts( 'datas-especiais' );
-                            $post_calendar_count_current = intval( $post_calendar_count->publish );
+                                    <?php 
+                                        $current_year = strftime('%Y', strtotime('today'));
+                                        $mes = date('m');
+                                        $dia = date('d');
 
-                            foreach ($array_meses as $mes => $meses): 
-                                $date_current = $mes;
-                                $current_year = strftime('%Y', strtotime('today'));
-                                $data_inicio = date('Y'.$date_current.'01');
-                                $data_final = date('Y'.$date_current.'31');
+                                        $args = array(
+                                            'post_type'       	=> 'datas-especiais',
+                                            'posts_per_page'	=> -1,
+                                            'orderby'			=> 'meta_value',
+                                            'order'				=> 'ASC',
+                                            'meta_key'          => 'data_inicio_custom_post_calendario',
+                                            'tax_query' => array(
+                                                array(
+                                                        'taxonomy' => 'categoria-datas-especiais',
+                                                        'field' => 'id',
+                                                        'terms' => 101,102,
+                                                ),
+                                            ),
+                                        );
 
-                                $args = array (
-                                    'post_type'       	=> 'datas-especiais',
-                                    'posts_per_page'	=> -1,
-                                    'orderby'			=> 'meta_value',
-                                    'order'				=> 'ASC',
-                                    'meta_key'          => 'data_inicio_custom_post_calendario',
-                                    'meta_query'		=> array (
-                                        'relation'			=> 'AND',
-                                        array (
-                                            'key'			=> 'data_inicio_custom_post_calendario',
-                                            'value'			=> $data_inicio,
-                                            'compare'		=> '>=',
-                                            'type'			=> 'DATE',
-                                        ),
-                                        array (
-                                            'key'			=> 'data_inicio_custom_post_calendario',
-                                            'value'			=> $data_final,
-                                            'compare'		=> '<=',
-                                            'type'			=> 'DATE',
-                                        ),
-                                    )
-                                );
-                                
-                                $calendar = new WP_Query( $args );  
-                                
-				                while( $calendar->have_posts()) : $calendar->the_post();
-                                    $data = get_field( 'data_inicio_custom_post_calendario', get_the_ID() );
-				                    $title = get_the_title();
-				                    $excerpt = get_the_excerpt();
-				                    $cidades = get_the_terms(get_the_ID(), 'categoria-datas-especiais');
-				                    list($data_day, $data_month, $data_year) = explode("/", $data);
-				                    $array_calendar[] = array ( 'data' => $current_year.'-'.$data_month.'-'.$data_day, 'title' => $title, 'excerpt' => $excerpt, 'cidades' => $cidades );
-                                endwhile; 
-                                
-                                wp_reset_postdata();
-                                    
-                                
-                                if ( !empty ( $array_calendar ) ) :
-                                    usort ( $array_calendar, 'mantenedora_cmp' );
-                        ?>
+                                        $aniversarios = new WP_Query($args);
+
+                                        while( $aniversarios->have_posts()) : $aniversarios->the_post();
+                                    ?>
+
                                     <div class="swiper-slide flex-wrap align-items-start">
+                                        <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
+                                        <?php $title = get_the_title();?>
+                                        <?php $excerpt = get_the_excerpt();?>
+                                        <?php $permalink = get_the_permalink();?>
+                                        <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
+                                        <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'excerpt' => $excerpt, 'permalink' => $permalink); ?>
+                                        <?php endwhile; wp_reset_postdata();?>
 
                                         <div class="col-12">
                                             
@@ -268,55 +249,38 @@
                                             </h6>
 
                                             <!-- loop -->
-                                            <?php 
-                                                
-                                                foreach ( $array_calendar as $cal ) :
-                                                    list( $data_year, $data_month, $data_day ) = explode("-", $cal['data']);
-                                                    if ( $date_current == $data_month ) : 
-                                                        $count_calendar = 0;
-                                            ?>
-                                                        <div class="my-2">
-                                                            <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
-                                                                <!-- // 14 -->
-                                                                // <?php echo $data_day; ?>
-                                                            </p>
+                                                    <?php 
+                                                        if (!empty ($array_calendarios)) :?>
+                                                        <?php usort($array_calendarios, 'mantenedora_cmp');?>
+                                                        <?php $contador = 1; ?>
+                                                        <?php foreach ($array_calendarios as $calendario ) : ?>
+                                                            <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
+                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) ;?>
+                                                            <div class="my-2">
+                                                                        <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
+                                                                            <!-- // 14 -->
+                                                                            // <?php echo $dia_data; ?>.<?php echo $mes_data; ?></p>
+                                                                        </p>
 
-                                                            <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                                <!-- Nascimento | P. Ivo Poffo (1940) -->
-                                                                <?php echo $cal["title"]; ?>
-                                                            </p>
-                                                        </div>
-                                            <!-- 
-                                                    else : $count_calendar++; 
-                                                        if( $count_calendar == $post_calendar_count_current ) {
-                                                            $count_calendar = 0;
-                                                            echo '<p>Não há eventos!</p>';
-                                                        }
-                                            -->
-                                            <?php   endif;
-                                                endforeach; 
-                                            ?>
-                                            <!-- end loop -->
+                                                                        <p class="l-calendar__text u-font-weight-semibold mb-0">
+                                                                            <!-- Nascimento | P. Ivo Poffo (1940) -->
+                                                                            <?php echo $calendario["title"]; ?>
+                                                                        </p>
+                                                            </div>
+                                                                <?php $contador++;?>
+                                                                <?php 
+                                                                    endforeach; 
+                                                    ?>
+                                                        <!-- end loop -->
                                         </div>
                                     </div>
-                        <!--   else : >
-                                    <div class="swiper-slide flex-column justify-content-start align-items-start">
-                                        <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
-                                            comemorações e memória:
-                                        </h6>
-                                        <p>
-                                            Não tem comemorações e memória!
-                                        </p>
-                                    </div> -->
 						<?php   else : ?>
                                     <div class="swiper-slide justify-content-start">
                                         <p class="u-color-folk-white">
                                             Não tem nenhum evento!
                                         </p>
                                     </div>
-                        <?php   endif;
-                            endforeach; 
-                        ?>
+                        <?php   endif; ?>
                     </div>
                 </div>
                 <!-- end swiper -->

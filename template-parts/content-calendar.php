@@ -184,10 +184,10 @@
                             
                                 <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
                                 <?php $title = get_the_title();?>
-                                <?php $excerpt = get_the_excerpt();?>
-                                <?php $permalink = get_the_permalink();?>
+                                <!-- <php $excerpt = get_the_excerpt();?> -->
+                                <!-- <php $permalink = get_the_permalink();?> -->
                                 <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
-                                <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'excerpt' => $excerpt, 'permalink' => $permalink); ?>
+                                <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title); ?>
                                 <?php endwhile; wp_reset_postdata();?>
                                 <div class="col-12">
                                 
@@ -196,7 +196,7 @@
                                 </h6>
                                     <?php 
                                         if (!empty ($array_calendarios)) :?>
-                                        <?php usort($array_calendarios, 'mantenedora_cmp');?>
+                                        <!-- <php usort($array_calendarios, 'mantenedora_cmp');?> -->
                                         <?php $contador = 1; ?>
                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                             <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>

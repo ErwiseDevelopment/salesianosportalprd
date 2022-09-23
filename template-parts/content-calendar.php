@@ -242,7 +242,8 @@
                                                 <?php endif; endforeach; ?>
                                                 <!-- end loop -->
                                 </div>
-                        </div>        
+                        </div>  
+                    </div>      
                                                 <?php else : ?>
                                                             <div class="swiper-slide justify-content-start">
                                                                 <p class="u-color-folk-white">
@@ -250,7 +251,7 @@
                                                                 </p>
                                                             </div>
                                                 <?php   endif;?>
-                    </div>                  
+                                      
                 </div>
                 <!-- end swiper -->
             </div>

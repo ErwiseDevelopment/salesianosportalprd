@@ -136,8 +136,8 @@
                                     </div>  
 						<?php   else : ?>
                                     <div class="swiper-slide justify-content-start">
-                                        <p class="u-color-folk-white">
-                                            Não tem nenhum evento!
+                                        <p class="u-color-folk-black">
+                                        <?php echo var_dump($split_date_blog[0]); ?>.<?php echo var_dump($split_date_blog[1]); ?>
                                         </p>
                                     </div>
                         <?php   endif;?>

@@ -121,7 +121,7 @@
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                 <!-- // 02-03 -->
-                                                                // <?php echo $split_date_blog[0]; ?>.<?php echo $split_date_blog[1]; ?>
+                                                                // <?php echo var_dump($split_date_blog[0]); ?>.<?php echo var_dump($split_date_blog[1]); ?>
                                                             </p>
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">

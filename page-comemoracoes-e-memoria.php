@@ -94,7 +94,7 @@ get_header(); ?>
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => 102,
+                                                        'terms' => $ids,
                                                 ),
                                             ),
                                         );
@@ -113,10 +113,10 @@ get_header(); ?>
                                     <?php 
                                                         if (!empty ($array_calendarios)) :?>
                                                         <?php usort($array_calendarios, 'mantenedora_cmp');?>
-                                                        <?php $contador = 1; ?>
+                                                        
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                                         <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <=5 ) :;
+                                                        <?php if ($mes == $mes_data && $dia_data >= $dia  ) :;
                                                     ?>
                                     <div class="col-lg-4 my-3">
 

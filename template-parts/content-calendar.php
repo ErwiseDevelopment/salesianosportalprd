@@ -79,7 +79,7 @@
                 <div class="swiper-container swiper-container-day js-swiper-day">
 
                     <div class="swiper-wrapper">
-                        
+                    <?php the_field('txt_titulo_evento_home', $post->ID); ?>
                         <?php 
                             $data_atual = date('Ymd');
 

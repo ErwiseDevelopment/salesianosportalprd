@@ -85,7 +85,7 @@
 
                             $args = array (
                                 'post_type'       	=> 'agendas',
-                                'posts_per_page'	=> 2,
+                                'posts_per_page'	=> 5,
                                 'orderby'			=> 'meta_value',
                                 'order'				=> 'ASC',
                                 'meta_key'          => 'data_custom_post_agenda',

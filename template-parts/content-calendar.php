@@ -249,7 +249,7 @@
                                             <!-- loop -->
                                                     <?php 
                                                         if (!empty ($array_calendarios)) :?>
-                                                        <!-- <php usort($array_calendarios, 'mantenedora_cmp');?> -->
+                                                        <?php usort($array_calendarios, 'mantenedora_cmp');?>
                                                         <?php $contador = 1; ?>
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                                         <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>

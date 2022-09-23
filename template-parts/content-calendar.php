@@ -153,7 +153,8 @@
 
                     <div class="swiper-wrapper">
                         
-                                    <?php $ids = array(101,102);
+                                    <?php 
+                                        $ids = array(101,102,103,104,105); //NAO UTILIZADO
                                         $current_year = date('%Y');
                                         $mes = date('m');
                                         $dia = date('d');
@@ -168,7 +169,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => $ids,
+                                                        'terms' => 102,
                                                 ),
                                             ),
                                         );

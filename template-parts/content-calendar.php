@@ -152,7 +152,8 @@
                 <div class="swiper-container swiper-container-calendar js-swiper-day">
 
                     <div class="swiper-wrapper">
-                                    <?php 
+                        
+                                    <?php $ids = array(102,103,104,105);
                                         $current_year = date('%Y');
                                         $mes = date('m');
                                         $dia = date('d');
@@ -167,7 +168,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => array(102,103,104,105),
+                                                        'terms' => array($ids),
                                                 ),
                                             ),
                                         );

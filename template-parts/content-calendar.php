@@ -168,7 +168,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => array($ids),
+                                                        'terms' => $ids,
                                                 ),
                                             ),
                                         );

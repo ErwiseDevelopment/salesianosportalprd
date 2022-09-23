@@ -167,7 +167,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => 101,
+                                                        'terms' => 101,102,103,104
                                                 ),
                                             ),
                                         );
@@ -195,15 +195,15 @@
                                                     <?php 
                                                         if (!empty ($array_calendarios)) :?>
                                                         <?php usort($array_calendarios, 'mantenedora_cmp');?>
-                                                        <?php $contador = 1; ?>
+                                                        <?php $contador = 0; ?>
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                                         <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 8 ) :;
+                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <=8 ) :;
                                                     ?>
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                 <!-- // 14 -->
-                                                                // <?php echo $dia_data; ?>
+                                                                // <?php echo $dia_data; ?>.<?php echo $mes_data; ?>
                                                             </p>
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">

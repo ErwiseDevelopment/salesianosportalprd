@@ -113,9 +113,9 @@
 
                                             <!-- loop -->
                                             <?php if ( $agendas->have_posts() ) : ?>
-                                                <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>
-											 <?php $date_agenda = get_field('data_custom_post_agenda', $post->ID); ?>
-                                                <?php $split_date_blog = explode('/', $date_agenda); ?>
+                                                 <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>	
+											        <?php $date_agenda = get_field('data_custom_post_agenda', $post->ID); ?>
+                                                         <?php $split_date_blog = explode('/', $date_agenda); ?>
                                              
                                         
                                                         <div class="my-2">
@@ -126,7 +126,7 @@
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">
                                                                 <!-- Conselho Inspetorial – Porto Alegre/RS -->
-                                                                <?php echo the_title(); ?>
+                                                                <?php  the_title(); ?>
                                                             </p>
                                                         </div>     
                                                         <?php endwhile; wp_reset_postdata(); ?>
@@ -140,9 +140,7 @@
                                             Não tem nenhum evento!
                                         </p>
                                     </div>
-                        <?php   endif;
-                           
-                        ?>
+                        <?php   endif;?>
                     </div>
                 </div>
                 <!-- end swiper -->

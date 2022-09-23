@@ -137,7 +137,7 @@
 						<?php   else : ?>
                                     <div class="swiper-slide justify-content-start">
                                         <p class="u-color-folk-black">
-                                        <?php echo var_dump($split_date_blog[0]); ?>.<?php echo var_dump($split_date_blog[1]); ?>
+                                        <?php echo var_dump($agendas); ?>.<?php echo var_dump($date_agenda); ?>
                                         </p>
                                     </div>
                         <?php   endif;?>

@@ -133,7 +133,7 @@ function get_category_api_field($post_id) {
     // return $categories;
 
     $categories = array();
-    foreach( get_the_terms($post->ID, 'ebook-categoria') as $cat ) {
+    foreach( get_the_terms($post_id->ID, 'ebook-categoria') as $cat ) {
         array_push($categories, $cat->name);
     }
 

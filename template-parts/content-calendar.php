@@ -21,8 +21,9 @@
                 <div class="row">
 
                     <div class="col-lg-6">
-                    <!-- swiper -->
-                    <?php
+
+                        <!-- swiper -->
+                        <?php
                             $year_current = date( "Y" );
 
                             $array_meses = array (
@@ -74,104 +75,129 @@
 
             <div class="col-6 mt-4">
 
-                    <!-- swiper -->
-                    <div class="swiper-container swiper-container-day js-swiper-day">
+                <!-- swiper -->
+                <div class="swiper-container swiper-container-day js-swiper-day">
 
-                        <div class="swiper-wrapper">
-        
-                                <?php 
-                                    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-                                    date_default_timezone_set('America/Sao_Paulo');
-                                        
-                                    $post_agenda_count = wp_count_posts( 'agendas' );
-                                    $post_agenda_count_current = intval( $post_agenda_count->publish );
-                                    $count = -1;
+                    <div class="swiper-wrapper">
+                        
+                        <?php 
+                            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                            date_default_timezone_set('America/Sao_Paulo');
+                                
+                            $post_agenda_count = wp_count_posts( 'agendas' );
+                            $post_agenda_count_current = intval( $post_agenda_count->publish );
+                            $count = -1;
 
-                                    foreach ($array_meses as $mes => $meses): 
-                                        $date_current = (string) $mes;
-                                        $current_year = strftime('%Y', strtotime('today'));
-                                        $data_inicio = date('Y'.$date_current.'01');
-                                        $data_final = date('Y'.$date_current.'31');
+                            foreach ($array_meses as $mes => $meses): 
+                                $date_current = (string) $mes;
+                                $current_year = strftime('%Y', strtotime('today'));
+                                $data_inicio = date('Y'.$date_current.'01');
+                                $data_final = date('Y'.$date_current.'31');
 
-                                        $args = array (
-                                            'post_type'       	=> 'agendas',
-                                            'posts_per_page'	=> -1,
-                                            'orderby'			=> 'meta_value',
-                                            'order'				=> 'ASC',
-                                            'meta_key'          => 'data_custom_post_agenda_inicio',
-                                            'meta_query'		=> array (
-                                                'relation'			=> 'AND',
-                                                array (
-                                                    'key'			=> 'data_custom_post_agenda_inicio',
-                                                    'value'			=> $data_inicio,
-                                                    'compare'		=> '>=',
-                                                    'type'			=> 'DATE',
-                                                ),
-                                                array (
-                                                    'key'			=> 'data_custom_post_agenda_inicio',
-                                                    'value'			=> $data_final,
-                                                    'compare'		=> '<=',
-                                                    'type'			=> 'DATE',
-                                                ),
-                                            ),
-                                        );
-                                        
-                                        $agendas = new WP_Query($args);
-                                        
-                                        while( $agendas->have_posts()) : $agendas->the_post();
-                                            $data = get_field( 'data_custom_post_agenda_inicio', get_the_ID() );
-                                            $title = get_the_title();
-                                            $excerpt = get_the_excerpt();
-                                            $cidades = get_the_terms(get_the_ID(), 'agendacidade');
-                                            list($data_day, $data_month, $data_year) = explode("/", $data);
-                                            $array_agendas[] = array ( 'data' => $current_year.'-'.$data_month.'-'.$data_day, 'title' => $title, 'excerpt' => $excerpt, 'cidades' => $cidades );
-                                        endwhile; 
-                                        
-                                        wp_reset_postdata();
+                                $args = array (
+                                    'post_type'       	=> 'agendas',
+                                    'posts_per_page'	=> -1,
+                                    'orderby'			=> 'meta_value',
+                                    'order'				=> 'ASC',
+                                    'meta_key'          => 'data_custom_post_agenda_inicio',
+                                    'meta_query'		=> array (
+                                        'relation'			=> 'AND',
+                                        array (
+                                            'key'			=> 'data_custom_post_agenda_inicio',
+                                            'value'			=> $data_inicio,
+                                            'compare'		=> '>=',
+                                            'type'			=> 'DATE',
+                                        ),
+                                        array (
+                                            'key'			=> 'data_custom_post_agenda_inicio',
+                                            'value'			=> $data_final,
+                                            'compare'		=> '<=',
+                                            'type'			=> 'DATE',
+                                        ),
+                                    ),
+                                );
+                                
+                                $agendas = new WP_Query($args);
+                                
+				                while( $agendas->have_posts()) : $agendas->the_post();
+                                    $data = get_field( 'data_custom_post_agenda_inicio', get_the_ID() );
+				                    $title = get_the_title();
+				                    $excerpt = get_the_excerpt();
+				                    $cidades = get_the_terms(get_the_ID(), 'agendacidade');
+				                    list($data_day, $data_month, $data_year) = explode("/", $data);
+				                    $array_agendas[] = array ( 'data' => $current_year.'-'.$data_month.'-'.$data_day, 'title' => $title, 'excerpt' => $excerpt, 'cidades' => $cidades );
+                                endwhile; 
+                                
+                                wp_reset_postdata();
 
-                                        if ( !empty ( $array_agendas ) ) :
-                                            usort ( $array_agendas, 'mantenedora_cmp' );
-                                ?>
-                                <div class="swiper-slide">
+                                if ( !empty ( $array_agendas ) ) :
+                                    usort ( $array_agendas, 'mantenedora_cmp' );
+                        ?>
+                                    <div class="swiper-slide">
 
-                                    <div class="col my-3 my-md-0">
+                                        <div class="col my-3 my-md-0">
 
-                                        <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
-                                            destaques:
-                                        </h6>
+                                            <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
+                                                destaques:
+                                            </h6>
 
-                                        <!-- loop -->
-                                                    <?php 
-                                                        $count_item = 0;
+                                            <!-- loop -->
+                                            <?php 
+												$count_item = 0;
 
-                                                        foreach ( $array_agendas as $agenda ) :
-                                                        list($data_year, $data_month, $data_day) = explode("-", $agenda['data']);
-                                                                if ( $date_current == $data_month ) : 
-                                                    ?>
-                                            <div class="my-2">
-                                                <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
-                                                    <!-- // 02-03 -->
-                                                    // <?php echo $data_day . '-' . $data_month; ?>
-                                                </p>
+                                                foreach ( $array_agendas as $agenda ) :
+                                                    // echo "<pre>";
+                                                    // var_dump($agenda['data']);
+                                                    // echo "</pre>";
+                                                    list($data_year, $data_month, $data_day) = explode("-", $agenda['data']);
+													// $count_item++;
+													// echo  'Fora do if' . $count_item . '<br>';
+                                                    // echo 'Título: ' . $agenda['title'] . '<br>';
+                                                    // echo 'Month: ' . $data_month . '<br>';
+                                                    // echo 'Month current: ' . $data_current . '<br>';
 
-                                                <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                    <!-- Conselho Inspetorial – Porto Alegre/RS -->
-                                                    <?php echo $agenda["title"]; ?>
-                                                </p>
-                                            </div>     
-                                                    <?php   endif; endforeach;?>
-                                        <!-- end loop -->
+                                                    if ( $date_current == $data_month ) : 
+                                                        $count = 0;
+                                            ?>
+                                                        <div class="my-2">
+                                                            <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
+                                                                <!-- // 02-03 -->
+                                                                // <?php echo $data_day . '-' . $data_month; ?>
+                                                            </p>
+
+                                                            <p class="l-calendar__text u-font-weight-semibold mb-0">
+                                                                <!-- Conselho Inspetorial – Porto Alegre/RS -->
+                                                                <?php echo $agenda["title"]; ?>
+                                                            </p>
+                                                        </div>     
+                                            <?php 
+                                                    else : $count++; 
+                                                        if( $count == $post_agenda_count_current ) {
+                                                            $count = 0;
+                                                            echo '<p>Não há eventos!</p>';
+                                                        }
+                                            ?>
+                                            <?php   endif;
+
+                                                    if( $count_item == 5 )
+                                                        echo 'Count: ' . $count_item;
+                                                        // break;
+                                                endforeach; 
+                                            ?>
+                                            <!-- end loop -->
+                                        </div>
+                                    </div>  
+						<?php   else : ?>
+                                    <div class="swiper-slide justify-content-start">
+                                        <p class="u-color-folk-white">
+                                            Não tem nenhum evento!
+                                        </p>
                                     </div>
-                                </div>  
-                                <?php   else : ?>
-                                            <div class="swiper-slide justify-content-start">
-                                                <p class="u-color-folk-white">
-                                                    Não tem nenhum evento!
-                                                </p>
-                                            </div>
-                                <?php   endif; endforeach;?>
-                        </div>
+                        <?php   endif;
+                            endforeach; 
+                        ?>
                     </div>
+                </div>
                 <!-- end swiper -->
             </div>
 
@@ -181,7 +207,6 @@
                 <div class="swiper-container swiper-container-calendar js-swiper-day">
 
                     <div class="swiper-wrapper">
-                        
                                     <?php 
                                         $current_year = date('%Y');
                                         $mes = date('m');
@@ -207,54 +232,60 @@
                                         while( $aniversarios->have_posts()) : $aniversarios->the_post();
                                     ?>
 
-                        <div class="swiper-slide flex-wrap align-items-start">
-
-                            
                                     <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
                                     <?php $title = get_the_title();?>
                                     <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
                                     <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title); ?>
                                     <?php endwhile; wp_reset_postdata();?>
-                                <div class="col-12">
-                                    <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
-                                        comemorações e memória:
-                                    </h6>
-                                            <?php 
-                                                if (!empty ($array_calendarios)) :?>
-                                                <!-- <php usort($array_calendarios, 'mantenedora_cmp');?> -->
-                                                <?php $contador = 1; ?>
-                                                <?php foreach ($array_calendarios as $calendario ) : ?>
-                                                <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) :;
-                                            ?>
-                                        <div class="my-2">
-                                            <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
-                                                <!-- // 14 -->
-                                                // <?php echo $dia_data; ?>.<?php echo $mes_data; ?></p>
-                                            </p>
 
-                                            <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                <!-- Nascimento | P. Ivo Poffo (1940) -->
-                                                <?php echo $calendario["title"]; ?>
-                                            </p>
+                                    <div class="swiper-slide flex-wrap align-items-start">
+
+                                        <div class="col-12">
+                                            
+                                            <h6 class="l-calendar__title u-font-weight-black text-uppercase u-color-folk-primary">
+                                                comemorações e memória:
+                                            </h6>
+
+                                            <!-- loop -->
+                                                    <?php 
+                                                        if (!empty ($array_calendarios)) :?>
+                                                        <!-- <php usort($array_calendarios, 'mantenedora_cmp');?> -->
+                                                        <?php $contador = 1; ?>
+                                                        <?php foreach ($array_calendarios as $calendario ) : ?>
+                                                        <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
+                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <= 5 ) :;
+                                                    ?>
+                                                        <div class="my-2">
+                                                            <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
+                                                                <!-- // 14 -->
+                                                                // <?php echo $dia_data; ?>
+                                                            </p>
+
+                                                            <p class="l-calendar__text u-font-weight-semibold mb-0">
+                                                                <!-- Nascimento | P. Ivo Poffo (1940) -->
+                                                                <?php echo $calendario["title"]; ?>
+                                                            </p>
+                                                        </div>
+                                            <?php   endif;
+                                                endforeach; 
+                                            ?>
+                                            <!-- end loop -->
                                         </div>
-                                                <?php $contador++;?>
-                                                <?php endif; endforeach; ?>
-                                                <!-- end loop -->
-                                </div>
-                        </div>  
-                    </div>      
-                                                <?php else : ?>
-                                                            <div class="swiper-slide justify-content-start">
-                                                                <p class="u-color-folk-white">
-                                                                    Não tem nenhum evento!
-                                                                </p>
-                                                            </div>
-                                                <?php   endif;?>
-                                      
+                                    </div>
+						<?php   else : ?>
+                                    <div class="swiper-slide justify-content-start">
+                                        <p class="u-color-folk-white">
+                                            Não tem nenhum evento!
+                                        </p>
+                                    </div>
+                        <?php   endif;
+                           
+                        ?>
+                    </div>
                 </div>
                 <!-- end swiper -->
             </div>
+
             <div class="col-12 mb-5 my-md-5">
 
                 <div class="row">

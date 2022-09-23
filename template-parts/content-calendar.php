@@ -167,7 +167,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => '101','102','104','103','105',
+                                                        'terms' => 101,
                                                 ),
                                             ),
                                         );
@@ -207,8 +207,8 @@
                                                             </p>
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                                <!-- Nascimento | P. Ivo Poffo (1940)echo $calendario["title"]; -->
-                                                                <?php  echo var_dump($mes == $mes_data && $dia_data >= $dia && $contador <= 8);?>
+                                                                <!-- Nascimento | P. Ivo Poffo (1940); -->
+                                                                <?php  echo $calendario["title"];?>
                                                             </p>
                                                         </div>
                                             <?php   endif;

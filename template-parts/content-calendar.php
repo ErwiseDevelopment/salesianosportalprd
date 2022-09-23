@@ -207,8 +207,8 @@
                                                             </p>
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                                <!-- Nascimento | P. Ivo Poffo (1940) -->
-                                                                <?php echo $calendario["title"]; ?>
+                                                                <!-- Nascimento | P. Ivo Poffo (1940)echo $calendario["title"]; -->
+                                                                <?php  echo var_dump($mes == $mes_data && $dia_data >= $dia && $contador <= 8);?>
                                                             </p>
                                                         </div>
                                             <?php   endif;

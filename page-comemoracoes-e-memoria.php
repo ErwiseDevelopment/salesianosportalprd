@@ -116,7 +116,7 @@ get_header(); ?>
                                                         
                                                         <?php foreach ($array_calendarios as $calendario ) : ?>
                                                         <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
-                                                        <?php if ($mes == $mes_data && $dia_data >= $dia  ) :;
+                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $date_current ) :;
                                                     ?>
                                     <div class="col-lg-4 my-3">
 

@@ -101,8 +101,7 @@
                             );
         
                             $agendas = new WP_Query($args); ?>
-                            <?php if ( $agendas->have_posts() ) : ?>
-                                <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>
+                           
 
                                     <div class="swiper-slide">
 
@@ -113,7 +112,8 @@
                                             </h6>
 
                                             <!-- loop -->
-                                            	
+                                            <?php if ( $agendas->have_posts() ) : ?>
+                                                <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>
 											 <?php $date_agenda = get_field('data_custom_post_agenda', $post->ID); ?>
                                                 <?php $split_date_blog = explode('/', $date_agenda); ?>
                                              

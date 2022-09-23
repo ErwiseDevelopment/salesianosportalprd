@@ -78,63 +78,46 @@ get_header(); ?>
                 <div class="row">
 
                     <!-- loop -->
-                    <?php
-                        $current_year = strftime('%Y', strtotime('today'));
-                        $data_inicio = date('Y'.$date_current.'01');
-                        $data_final = date('Y'.$date_current.'31');
+                    <?php 
+                                        $ids = array(101,102,103,104,105); //NAO UTILIZADO
+                                        $current_year = date('%Y');
+                                        $mes = date('m');
+                                        $dia = date('d');
 
-                        $args = array (
-                            'post_type'       	=> 'datas-especiais',
-                            'posts_per_page'	=> -1,
-                            'orderby'			=> 'meta_value',
-                            'order'				=> 'ASC',
-                            'meta_key'          => 'data_inicio_custom_post_calendario',
-                            'meta_query'		=> array (
-                                'relation'			=> 'AND',
-                                array (
-                                    'key'			=> 'data_inicio_custom_post_calendario',
-                                    'value'			=> $data_inicio,
-                                    'compare'		=> '>=',
-                                    'type'			=> 'DATE',
-                                ),
-                                array (
-                                    'key'			=> 'data_inicio_custom_post_calendario',
-                                    'value'			=> $data_final,
-                                    'compare'		=> '<=',
-                                    'type'			=> 'DATE',
-                                ),
-                            ),
-                        );
+                                        $args = array(
+                                            'post_type'       	=> 'datas-especiais',
+                                            'posts_per_page'	=> -1,
+                                            'orderby'			=> 'meta_value',
+                                            'order'				=> 'ASC',
+                                            'meta_key'          => 'data_inicio_custom_post_calendario',
+                                            'tax_query' => array(
+                                                array(
+                                                        'taxonomy' => 'categoria-datas-especiais',
+                                                        'field' => 'id',
+                                                        'terms' => 102,
+                                                ),
+                                            ),
+                                        );
 
-                        $agendas = new WP_Query($args);
+                                        $aniversarios = new WP_Query($args);
 
-                        while( $agendas->have_posts()) : $agendas->the_post();
-                            $data = get_field('data_inicio_custom_post_calendario', get_the_ID() );
-                            $title = get_the_title();
-                            $excerpt = get_the_excerpt();
-                            $permalink = get_the_permalink();
-                            $cidades = get_the_terms( get_the_ID(), 'categoria-datas-especiais' );
-                            list($dia_data, $mes_data, $ano_data) = explode("/", $data);
-                            
-                            $array_calendarios[] = array ( 
-                                'data'    => $current_year.'-'.$mes_data.'-'.$dia_data, 
-                                'title'   => $title, 
-                                'excerpt' => $excerpt, 
-                                'cidades' => $cidades,
-                                'link'    => $permalink
-                             );
-                        endwhile; 
-                        
-                        wp_reset_postdata();
+                                        while( $aniversarios->have_posts()) : $aniversarios->the_post();
+                                    ?>
 
-                        if( !empty( $array_calendarios ) ) :
-                            usort( $array_calendarios, 'mantenedora_cmp' );
-                            
-                            foreach( $array_calendarios as $calendario ) :
-                                list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);
+                                    <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
+                                    <?php $title = get_the_title();?>
+                                    <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
+                                    <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title); ?>
+                                    <?php endwhile; wp_reset_postdata();?>
                                 
-                                if( $date_current == $mes_data ) :
-                    ?>
+                                    <?php 
+                                                        if (!empty ($array_calendarios)) :?>
+                                                        <?php usort($array_calendarios, 'mantenedora_cmp');?>
+                                                        <?php $contador = 1; ?>
+                                                        <?php foreach ($array_calendarios as $calendario ) : ?>
+                                                        <?php list($ano_data, $mes_data, $dia_data) = explode("-", $calendario['data']);?>
+                                                        <?php if ($mes == $mes_data && $dia_data >= $dia && $contador <=5 ) :;
+                                                    ?>
                                     <div class="col-lg-4 my-3">
 
                                         <a 

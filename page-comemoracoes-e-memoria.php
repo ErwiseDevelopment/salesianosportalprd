@@ -122,7 +122,7 @@ get_header(); ?>
 
                                         <a 
                                         class="l-page-agenda__card card text-decoration-none pb-4"
-                                        href="<?php echo $calendario['link'] ?>">
+                                        >
 
                                             <div class="card-body">
 

@@ -19,6 +19,32 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
+<!-- banner -->
+<section>
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-12 px-0">
+
+				<?php
+					$alt_title = get_the_title();
+
+					the_post_thumbnail(
+						'post-thumbnail',
+						array(
+							'class' => 'img-fluid',
+							'alt'   => $alt_title
+						)
+					);
+				?>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end banner -->
+
 <!-- page agendas -->
 <section class="l-page-agenda">
 
@@ -127,7 +153,7 @@ get_header(); ?>
                                             <div class="card-body">
 
                                                 <h5 class="l-page-agenda__date u-font-weight-bold">
-                                                    <!-- 11.02 -->
+                                                    <!-- 11.02a -->
                                                     <?php echo $dia_data . '.' . $mes_data; ?>
                                                 </h5>
 

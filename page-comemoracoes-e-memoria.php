@@ -105,7 +105,7 @@ get_header(); ?>
 
                     <!-- loop -->
                     <?php 
-                                        $ids = array(108,107,105,109,106); 
+                                        //$ids = array(108,107,105,109,106); 
                                         $current_year = date('%Y');
                                         $mes = date('m');
                                         $dia = date('d');

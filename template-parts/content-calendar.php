@@ -209,7 +209,7 @@
                                                             </p>
 
                                                             <p class="l-calendar__text u-font-weight-semibold mb-0">
-                                                                <!-- Nascimento | P. Ivo Poffo (1940); -->
+                                                                <!-- Nascimento | P. Ivo Poffo -->
                                                                 <?php  echo $calendario["title"];?>
                                                             </p>
                                                         </div>

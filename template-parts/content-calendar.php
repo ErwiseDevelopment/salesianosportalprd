@@ -88,11 +88,11 @@
                                 'posts_per_page'	=> 5,
                                 'orderby'			=> 'meta_value',
                                 'order'				=> 'ASC',
-                                'meta_key'          => 'data_custom_post_agenda',
+                                'meta_key'          => 'data_custom_post_agenda_inicio',
                                 'meta_query'		=> array (
                                     'relation'			=> 'AND',
                                     array (
-                                        'key'			=> 'data_custom_post_agenda',
+                                        'key'			=> 'data_custom_post_agenda_inicio',
                                         'value'			=> $data_atual,
                                         'compare'		=> '>=',
                                         'type'			=> 'DATE',
@@ -114,7 +114,7 @@
                                             <!-- loop -->
                                             <?php if ( $agendas->have_posts() ) : ?>
                                                  <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>	
-											        <?php $date_agenda = get_field('data_custom_post_agenda', $post->ID); ?>
+											        <?php $date_agenda = get_field('data_custom_post_agenda_inicio', $post->ID); ?>
                                                          <?php $split_date_blog = explode('/', $date_agenda); ?>
                                              
                                         

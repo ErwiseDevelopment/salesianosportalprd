@@ -116,13 +116,13 @@ get_header(); ?>
                                             'orderby'			=> 'meta_value',
                                             'order'				=> 'ASC',
                                             'meta_key'          => 'data_inicio_custom_post_calendario',
-                                            'tax_query' => array(
-                                                array(
-                                                        'taxonomy' => 'categoria-datas-especiais',
-                                                        'field' => 'id',
-                                                        'terms' => $ids,
-                                                ),
-                                            ),
+                                            // 'tax_query' => array(
+                                            //     array(
+                                            //             'taxonomy' => 'categoria-datas-especiais',
+                                            //             'field' => 'id',
+                                            //             'terms' => $ids,
+                                            //     ),
+                                            // ),
                                         );
 
                                         $aniversarios = new WP_Query($args);

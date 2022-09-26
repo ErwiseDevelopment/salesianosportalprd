@@ -169,7 +169,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => 102,
+                                                        'terms' => 105,
                                                 ),
                                             ),
                                         );

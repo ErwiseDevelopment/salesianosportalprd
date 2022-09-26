@@ -105,24 +105,24 @@ get_header(); ?>
 
                     <!-- loop -->
                     <?php 
-                                        //$ids = array(108,107,105,109,106); 
+                                        $ids = array(108,107,105,109,106); 
                                         $current_year = date('%Y');
                                         $mes = date('m');
                                         $dia = date('d');
 
                                         $args = array(
                                             'post_type'       	=> 'datas-especiais',
-                                            'posts_per_page'	=> -1,
+                                            'posts_per_page'	=> 99,
                                             'orderby'			=> 'meta_value',
                                             'order'				=> 'ASC',
                                             'meta_key'          => 'data_inicio_custom_post_calendario',
-                                            // 'tax_query' => array(
-                                            //     array(
-                                            //             'taxonomy' => 'categoria-datas-especiais',
-                                            //             'field' => 'id',
-                                            //             'terms' => $ids,
-                                            //     ),
-                                            // ),
+                                            'tax_query' => array(
+                                                array(
+                                                        'taxonomy' => 'categoria-datas-especiais',
+                                                        'field' => 'id',
+                                                        'terms' => $ids,
+                                                ),
+                                            ),
                                         );
 
                                         $aniversarios = new WP_Query($args);

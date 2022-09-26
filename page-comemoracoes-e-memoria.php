@@ -133,7 +133,8 @@ get_header(); ?>
                                     <?php $data = get_field('data_inicio_custom_post_calendario', $post->ID);?>
                                     <?php $title = get_the_title();?>
                                     <?php list($dia_data, $mes_data, $ano_data) = explode("/", $data);?>
-                                    <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title); ?>
+                                    <?php $categoria_calendario = get_the_terms($post->ID, 'categoria-datas-especiais'); ?>
+                                    <?php $array_calendarios[] = array('data' => $current_year.'-'.$mes_data.'-'.$dia_data, 'title' => $title, 'categoria-datas-especiais' => $categoria_calendario); ?>
                                     <?php endwhile; wp_reset_postdata();?>
                                 
                                     <?php 
@@ -154,9 +155,12 @@ get_header(); ?>
 
                                                 <h5 class="l-page-agenda__date u-font-weight-bold">
                                                     <!-- 11.02a -->
-                                                    <?php echo $dia_data . '.' . $mes_data; ?>
+                                                    <?php echo $dia_data . '.' ?>
                                                 </h5>
-
+                                                <p class="l-page-agenda__post-title u-font-weight-bold">
+                                                    <!-- Nome do post -->
+                                                    <?php echo $calendario['categoria-datas-especiais'][0]->name; ?>
+                                                </p>                
                                                 <p class="l-page-agenda__post-title u-font-weight-bold">
                                                     <!-- Nome do post -->
                                                     <?php echo $calendario['title']; ?>

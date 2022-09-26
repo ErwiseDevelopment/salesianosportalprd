@@ -44,9 +44,9 @@ get_header(); ?>
 	</div>
 </section>
 <!-- end banner -->
-<br><br>
+
 <!-- page agendas -->
-<section class="l-page-agenda">
+<section class="l-page-agenda py-5">
 
     <div class="container">
 

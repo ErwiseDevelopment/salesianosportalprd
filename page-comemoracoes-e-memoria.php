@@ -45,7 +45,7 @@ get_header(); ?>
 </section>
 <!-- end banner -->
 
-<!-- page agendas -->
+<!-- page agendas 12-->
 <section class="l-page-agenda py-5">
 
     <div class="container">

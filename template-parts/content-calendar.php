@@ -169,7 +169,7 @@
                                                 array(
                                                         'taxonomy' => 'categoria-datas-especiais',
                                                         'field' => 'id',
-                                                        'terms' => 105,
+                                                        'terms' => 105, //ID de produção
                                                 ),
                                             ),
                                         );

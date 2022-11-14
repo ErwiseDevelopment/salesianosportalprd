@@ -39,7 +39,7 @@
                     ?>
                                 <div class="col-md-4 my-3 my-md-0">
 
-                                    <div class="card h-100 border-0">
+                                    <a class="card h-100 border-0 text-decoration-none"  href="<?php the_permalink() ?>">
 
                                         <div class="l-blogs__card-img card-img">
                                             <!-- <img
@@ -83,15 +83,14 @@
                                             <div class="row">
 
                                                 <div class="col-lg-8">
-                                                    <a 
-                                                    class="l-blogs__read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-secondary py-3 px-5" 
-                                                    href="<?php the_permalink() ?>">
+                                                    <p 
+                                                    class="l-blogs__read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-secondary py-3 px-5">
                                                         Ler mais
-                                                    </a>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                     <?php endwhile; 
                         endif;

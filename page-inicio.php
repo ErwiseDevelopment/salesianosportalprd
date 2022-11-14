@@ -110,7 +110,7 @@ get_header(); ?>
                         ?>
                                     <a 
                                     class="card border-0 text-decoration-none"
-                                    href="#">
+                                    href="<?php the_permalink() ?>">
 
                                         <div class="l-news__highlight__card-img card-img">
                                             <?php

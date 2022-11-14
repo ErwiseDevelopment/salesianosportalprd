@@ -159,8 +159,7 @@ get_header(); ?>
                                                 <div class="col-md-6 mt-3">
                                                     <p
                                                     class="l-news__highlight__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-3 px-5"
-                                                    style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
-                                                    href="<?php the_permalink() ?>">
+                                                    style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                         Ler mais
                                                     </p>
                                                 </div>
@@ -216,7 +215,9 @@ get_header(); ?>
                                                 }
                                             }                         
                                 ?>
-                                                <div class="card border-0">
+                                                <a 
+                                                class="card border-0 text-decoration-none"
+                                                href="<?php the_permalink() ?>">
 
                                                     <div class="card-img l-news__medium__card-img">
 
@@ -257,16 +258,15 @@ get_header(); ?>
                                                         <div class="row">
 
                                                             <div class="col-md-5">
-                                                                <a
+                                                                <p
                                                                 class="l-news__medium__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-2 px-5"
-                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
-                                                                href="<?php the_permalink() ?>">
+                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                                     Ler mais
-                                                                </a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </a>
                                 <?php   
                                             if($status)
                                                 break;
@@ -315,7 +315,9 @@ get_header(); ?>
                                                     }
                                                 } 
                                 ?>
-                                                <div class="card h-100 border-0">
+                                                <a 
+                                                class="card h-100 border-0 text-decoration-none"
+                                                href="<?php the_permalink() ?>">
 
                                                     <div class="l-news__small__card-img card-img">
                                                         <?php
@@ -360,16 +362,15 @@ get_header(); ?>
                                                         <div class="row">
 
                                                             <div class="col-md-10">
-                                                                <a
+                                                                <p
                                                                 class="l-news__small__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-2 px-5"
-                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
-                                                                href="<?php the_permalink() ?>">
+                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                                     Ler mais
-                                                                </a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </a>
                                 <?php           if($status) :
                                                     break;
                                                 endif;
@@ -420,7 +421,9 @@ get_header(); ?>
                                                 }
                                 ?>
 
-                                                <div class="card h-100 border-0">
+                                                <a 
+                                                class="card h-100 border-0 text-decoration-none"
+                                                href="<?php the_permalink()?>">
 
                                                     <div class="l-news__small__card-img card-img">
                                                         <?php
@@ -464,16 +467,15 @@ get_header(); ?>
                                                         <div class="row">
 
                                                             <div class="col-md-10">
-                                                                <a
+                                                                <p
                                                                 class="l-news__small__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-2 px-5"
-                                                                style="background-color: <?php echo $backgroundColor; ?>;"
-                                                                href="<?php the_permalink() ?>">
+                                                                style="background-color: <?php echo $backgroundColor; ?>;">
                                                                     Ler mais
-                                                                </a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </a>
                                 <?php           if($status) :
                                                     break;
                                                 endif;

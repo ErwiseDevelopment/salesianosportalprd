@@ -108,7 +108,9 @@ get_header(); ?>
                                         }
                                     }
                         ?>
-                                    <div class="card border-0">
+                                    <a 
+                                    class="card border-0 text-decoration-none"
+                                    href="#">
 
                                         <div class="l-news__highlight__card-img card-img">
                                             <?php
@@ -155,16 +157,16 @@ get_header(); ?>
                                             <div class="row">
 
                                                 <div class="col-md-6 mt-3">
-                                                    <a
+                                                    <p
                                                     class="l-news__highlight__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-3 px-5"
                                                     style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
                                                     href="<?php the_permalink() ?>">
                                                         Ler mais
-                                                    </a>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                         <?php endwhile; 
                             endif;
 

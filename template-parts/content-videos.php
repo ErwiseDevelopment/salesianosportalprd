@@ -37,7 +37,7 @@
                                             <div class="card-img">
                                                 <iframe 
                                                 class="l-videos__card-video"
-                                                src="<?php echo get_sub_field('video')?>" 
+                                                src="https://www.youtube.com/watch?v=S000CKvNYsw" 
                                                 title="YouTube video player" 
                                                 frameborder="0" 
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

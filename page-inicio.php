@@ -116,7 +116,8 @@ get_header(); ?>
                                                 
                                                 the_post_thumbnail('post-thumbnail', 
                                                     array(
-                                                        'class' => 'img-fluid w-100 h-100',
+                                                        'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
+                                                        'style' => 'height:280px',
                                                         'alt'   => $altTitle,
                                                 ));
                                             ?>

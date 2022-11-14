@@ -116,7 +116,7 @@
                                                  <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>	
 											        <?php $date_agenda = get_field('data_custom_post_agenda_inicio', $post->ID); ?>
                                                          <?php $split_date_blog = explode('/', $date_agenda); ?>
-                                             
+                                                            <?php if($split_date_blog[1] == $meses) :; ?>
                                         
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
@@ -129,7 +129,7 @@
                                                                 <?php  the_title(); ?>
                                                             </p>
                                                         </div>     
-                                                        <?php endwhile; wp_reset_postdata(); ?>
+                                                        <?php endif; endwhile; wp_reset_postdata(); ?>
                                          
                                             <!-- end loop -->
                                         </div>

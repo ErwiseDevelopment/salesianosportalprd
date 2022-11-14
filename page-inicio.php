@@ -71,14 +71,14 @@ get_header(); ?>
                         
                         <?php
                             $editorias = array(
-                                'Portal',
+                                //'Portal',
                                 'Institucional',
                                 'Paróquia',
                                 'Ensino',
                                 'Pastoral Juvenil',
                                 'Vocacional',
                                 'Obras Sociais',
-                                'Gráfica'
+                                //'Gráfica'
                             );
 
                             $args = array(
@@ -126,7 +126,8 @@ get_header(); ?>
                                         <div class="card-body mt-n4 pt-0">
 
                                             <div class="d-flex justify-content-center">
-                                                <p class="l-news__highlight__card-relevance d-inline-flex u-font-weight-bold u-color-folk-white py-2 px-5" style="background-color: <?php echo $backgroundColor; ?>;">
+                                                <p class="l-news__highlight__card-relevance d-inline-flex u-font-weight-bold u-color-folk-white py-2 px-5" 
+                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                     <span class="u-font-weight-medium u-color-folk-white mr-2">//</span> Destaque
                                                 </p>
                                             </div>
@@ -142,7 +143,7 @@ get_header(); ?>
 
                                                 <span 
                                                 class="u-font-weight-bold"
-                                                style="color: <?php echo $backgroundColor; ?>;">
+                                                style="color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                     em <?php echo get_the_date( 'd/m/Y', $blog_post_highlight->ID ) ?>
                                                 </span>
                                             </p>
@@ -156,7 +157,7 @@ get_header(); ?>
                                                 <div class="col-md-6 mt-3">
                                                     <a
                                                     class="l-news__highlight__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-3 px-5"
-                                                    style="background-color: <?php echo $backgroundColor; ?>;"
+                                                    style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
                                                     href="<?php the_permalink() ?>">
                                                         Ler mais
                                                     </a>
@@ -231,7 +232,8 @@ get_header(); ?>
                                                     <div class="card-body mt-n4 pt-0 px-0">
 
                                                         <div class="d-flex justify-content-center">
-                                                            <p class="l-news__medium__card-relevance d-inline-flex u-font-weight-bold u-color-folk-white mb-2 py-2 px-5" style="background-color: <?php echo $backgroundColor; ?>;">
+                                                            <p class="l-news__medium__card-relevance d-inline-flex u-font-weight-bold u-color-folk-white mb-2 py-2 px-5" 
+                                                            style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                                 <span class="u-font-weight-medium u-color-folk-white mr-2">//</span>
                                                                 <?php echo $category_name; ?>
                                                         </div>
@@ -243,7 +245,7 @@ get_header(); ?>
                                                         <p class="l-news__medium__card-info u-line-height-100">
                                                             <span class="u-font-weight-semibold">por <?php echo get_the_author_meta('user_firstname', get_the_author_ID() ) . ' ' . get_the_author_meta( 'user_lastname', get_the_author_ID() ); ?></span> <br>
                                                             <span class="u-font-weight-bold"
-                                                            style="color: <?php echo $backgroundColor; ?>;">
+                                                            style="color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                                 <?php 
                                                                     echo 'em ' . get_the_date( 'd/m/Y', $blog_post_portal_hightlight->ID );
                                                                 ?>
@@ -255,7 +257,7 @@ get_header(); ?>
                                                             <div class="col-md-5">
                                                                 <a
                                                                 class="l-news__medium__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-2 px-5"
-                                                                style="background-color: <?php echo $backgroundColor; ?>;"
+                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
                                                                 href="<?php the_permalink() ?>">
                                                                     Ler mais
                                                                 </a>
@@ -330,7 +332,8 @@ get_header(); ?>
                                                         <div>
 
                                                             <div class="d-flex justify-content-center">
-                                                                <p class="l-news__small__card-relevance d-inline-flex u-font-weight-bold u-color-folk-white mb-2 py-2 px-5" style="background-color: <?php echo $backgroundColor; ?>;">
+                                                                <p class="l-news__small__card-relevance d-inline-flex u-font-weight-bold u-color-folk-white mb-2 py-2 px-5" 
+                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                                     <span class="u-font-weight-medium u-color-folk-white mr-2">//</span>
                                                                     <?php echo $category_name; ?>
                                                                 </p>
@@ -344,7 +347,7 @@ get_header(); ?>
                                                                 <span class="u-font-weight-semibold">por <?php echo get_the_author_meta('user_firstname', get_the_author_ID() ) . ' ' . get_the_author_meta( 'user_lastname', get_the_author_ID() ); ?></span> <br>
                                                                 <span 
                                                                 class="u-font-weight-bold"
-                                                                style="color: <?php echo $backgroundColor; ?>;">
+                                                                style="color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;">
                                                                     <?php 
                                                                         echo 'em ' . get_the_date( 'd/m/Y', $blog_post_portal_hightlight->ID );
                                                                     ?>
@@ -357,7 +360,7 @@ get_header(); ?>
                                                             <div class="col-md-10">
                                                                 <a
                                                                 class="l-news__small__card-read-more u-line-height-100 hover:u-opacity-8 d-block u-font-weight-bold text-center text-decoration-none u-color-folk-white py-2 px-5"
-                                                                style="background-color: <?php echo $backgroundColor; ?>;"
+                                                                style="background-color: <?php echo $backgroundColor ? $backgroundColor : '#0B4DAD'; ?>;"
                                                                 href="<?php the_permalink() ?>">
                                                                     Ler mais
                                                                 </a>

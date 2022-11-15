@@ -67,8 +67,8 @@
                         <!-- end swiper -->
 
                         <!-- arrow -->
-                        <div class="swiper-button-prev swiper-button-prev-calendar js-swiper-button-prev-calendar js-swiper-find-month-active"></div>
-                        <div class="swiper-button-next swiper-button-next-calendar js-swiper-button-next-calendar js-swiper-find-month-active"></div>
+                        <!-- <div class="swiper-button-prev swiper-button-prev-calendar js-swiper-button-prev-calendar js-swiper-find-month-active"></div>
+                        <div class="swiper-button-next swiper-button-next-calendar js-swiper-button-next-calendar js-swiper-find-month-active"></div> -->
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
 											        <?php $date_agenda = get_field('data_custom_post_agenda_inicio', $post->ID); ?>
                                                          <?php $split_date_blog = explode('/', $date_agenda); ?>
                                              
-                                        
+                                                        <a href="<?php the_permalink()?>">
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                 <!-- // 02-03 -->
@@ -128,7 +128,8 @@
                                                                 <!-- Conselho Inspetorial – Porto Alegre/RS -->
                                                                 <?php  the_title(); ?>
                                                             </p>
-                                                        </div>     
+                                                        </div>   
+                                                        </a>  
                                                         <?php endwhile; wp_reset_postdata(); ?>
                                          
                                             <!-- end loop -->

@@ -14,7 +14,8 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-<section class="l-single-agenda__banner d-flex justify-content-center align-items-center">
+<section class="l-template-content__banner d-flex justify-content-center align-items-center u-bg-cover u-bg-no-repeat"
+style="background-image: url(<?php echo get_template_directory_uri()?>/../wp-bootstrap-starter-child/assets/images/template-content-banner.png)">
 
     <div class="container">
         
@@ -22,7 +23,7 @@ get_header(); ?>
 
             <div class="col-12">
 
-                <h2 class="text-center u-color-folk-white">
+                <h2 class="l-template-content__banner__title position-relative u-font-weight-bold u-font-family-cinzel-decorative text-center u-color-folk-white pb-4">
                     <?php the_title() ?>
                 </h2>
             </div>
@@ -36,34 +37,60 @@ get_header(); ?>
 
         <div class="row">
 
-            <div class="col-12">
+            <div class="col-9">
 
                 <h3 class="u-font-weight-bold text-uppercase u-color-folk-primary">
                     informações
                 </h3>
+                
+            </div>
+            <div class="col-3">
+            <a
+                                class="w-100 d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-font-family-lato text-center text-decoration-none u-color-folk-white u-bg-folk-dark-marron hover:u-bg-folk-dark-golden py-2" 
+                                href="<?php echo get_home_url( null, '/agenda'); ?>">
+                                   Voltar
+        </a>
             </div>
 
             <div class="col-md-8">
                 
                 <p>
-                    <strong class="text-uppercase">Horário:</strong> <?php echo get_field( 'txt_horario_custom_post_agenda_inicio' ); ?>
+                    <strong class="text-uppercase">Horário inicio:</strong> <?php echo get_field( 'txt_horario_custom_post_agenda_inicio' ); ?>
+                </p>
+                <p>
+                    <strong class="text-uppercase">Horário Fim:</strong> <?php echo get_field( 'txt_horario_custom_post_agenda_fim' ); ?>
                 </p>
 
                 <p>
-                    <strong class="text-uppercase">Data:</strong> <?php echo get_field( 'data_custom_post_agenda_inicio' ) . ' (' . get_field( 'txt_dia_semana_custom_post_agenda' ) . ')'; ?>
+                    <strong class="text-uppercase">Data inicio:</strong> <?php echo get_field( 'data_custom_post_agenda_inicio' ) . '  ' . get_field( 'txt_dia_semana_custom_post_agenda' ) ; ?>
                 </p>
-
+                <?php if (!empty(get_field( 'data_custom_post_agenda_fim' ) )):?>
                 <p>
-                    <strong class="text-uppercase">Local:</strong> <?php echo get_field( 'txt_local_custom_post_agenda' ) ?>
+                    <strong class="text-uppercase">Data fim:</strong> <?php echo get_field( 'data_custom_post_agenda_fim' ) ; ?>
                 </p>
+                <?php endif; ?>
+                
 
-                <p>
-                    <strong class="text-uppercase">Observações</strong>
-                </p>
+                <p> <?php if (!empty(get_field('link_online'))):?>
+                    <strong class="text-uppercase">Observações:</strong><br>
+                       
 
-                <span class="d-block">
-                    <?php echo get_field( 'txt_observacoes_custom_post_agenda' ) ?>
-                </span>
+                       Link online: <a href="<?php echo get_field('link_online')?>"><?php echo get_field('link_online');
+                       
+                        endif;?>
+                                    </a>
+                     <?php if (!empty(get_field( 'txt_local_custom_post_agenda' ) )):?>
+                        <p>
+                            <strong class="text-uppercase">Local:</strong> <?php echo get_field( 'txt_local_custom_post_agenda' ) ?>
+                        </p>
+                        <?php endif; ?>
+
+                        </p>
+                        <?php if (!empty(get_field( 'txt_observacoes_custom_post_agenda' ) )):?>
+                            <span class="d-block">
+                                <?php echo get_field( 'txt_observacoes_custom_post_agenda' ) ?>
+                            </span>
+                            <?php endif; ?>   
             </div>
         </div>
     </div>

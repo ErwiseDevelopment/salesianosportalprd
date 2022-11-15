@@ -35,15 +35,15 @@
                                         <div class="card w-100 h-100 border-0">
 
                                             <div class="card-img">
-                                                <iframe 
+                                                <!-- <iframe 
                                                 class="l-videos__card-video"
                                                 src="https://www.youtube.com/watch?v=S000CKvNYsw" 
                                                 title="YouTube video player" 
                                                 frameborder="0" 
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                                allowfullscreen></iframe>
+                                                allowfullscreen></iframe> -->
                                                 
-                                                <!-- <php echo get_sub_field( 'video' ) ?> -->
+                                                <?php echo get_sub_field( 'video' ) ?>
                                             </div>
 
                                             <div class="card-body px-0">

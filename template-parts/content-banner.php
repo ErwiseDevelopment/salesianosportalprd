@@ -1,4 +1,4 @@
-<section class="l-banner mt-n4 mt-lg-0">
+<section class="l-banner mt-lg-0">
 
     <div class="container-fluid">
 
@@ -11,19 +11,26 @@
 
                     <div class="swiper-wrapper">
 
-                        <!-- slide -->
-                        <?php if(have_rows( 'banner' )) :
-                            while(have_rows( 'banner' ) ) : the_row();
+                         <!-- slide a-->
+                  <?php if(have_rows( 'banner' )) :
+                                while(have_rows( 'banner' ) ) : the_row();
+                                    if( get_sub_field( 'imagem' ) ) :
+                                       
                         ?>
-                                <a 
-                                class="swiper-slide"
-                                href="<?php echo get_sub_field( 'link' ) ?>">
-                                    <img
-                                    class="img-fluid"
-                                    src="<?php echo get_sub_field( 'imagem' ) ?>"
-                                    alt="">
-                                </a>
-                        <?php endwhile;
+                                        <div class="swiper-slide">
+                                           <a href="<?php echo get_sub_field('link') ?>" 
+                                           <?php if(get_sub_field( 'nova_guia') == '1') : ?>
+                                                target="_blank"
+                                            <?php endif; ?>>
+                                                <img
+                                                class="img-fluid"
+                                                src="<?php echo get_sub_field( 'imagem' ) ?>"
+                                                alt="<?php the_title() ?>">
+                                           </a>
+                                        </div>
+                        <?php 
+                                    endif;
+                                endwhile;
                             endif;
                         ?>
                         <!-- end slide -->

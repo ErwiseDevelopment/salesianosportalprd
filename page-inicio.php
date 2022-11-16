@@ -118,7 +118,7 @@ get_header(); ?>
                                                 
                                                 the_post_thumbnail('post-thumbnail', 
                                                     array(
-                                                        'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
+                                                        'class' => 'img-fluid w-100 h-100 u-object-fit-cover u-object-fit-cover',
                                                         'style' => 'height:280px',
                                                         'alt'   => $altTitle,
                                                 ));
@@ -226,7 +226,7 @@ get_header(); ?>
                                                             
                                                             the_post_thumbnail('post-thumbnail', 
                                                                 array(
-                                                                    'class' => 'img-fluid w-100 h-100',
+                                                                    'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
                                                                     'alt'   => $altTitle,
                                                             ));
                                                         ?>
@@ -325,7 +325,7 @@ get_header(); ?>
                                                             
                                                             the_post_thumbnail('post-thumbnail', 
                                                                 array(
-                                                                    'class' => 'img-fluid w-100 h-100',
+                                                                    'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
                                                                     'alt'   => $altTitle,
                                                             ));
                                                         ?>
@@ -431,7 +431,7 @@ get_header(); ?>
                                                             
                                                             the_post_thumbnail('post-thumbnail', 
                                                                 array(
-                                                                    'class' => 'img-fluid w-100 h-100',
+                                                                    'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
                                                                     'alt'   => $altTitle,
                                                             ));
                                                         ?>
@@ -600,7 +600,7 @@ get_header(); ?>
 
                                                     <div class="col-md-5 pl-md-0">
                                                         <!-- <img
-                                                        class="img-fluid w-100 h-100"
+                                                        class="img-fluid w-100 h-100 u-object-fit-cover"
                                                         src="<php echo get_template_directory_uri()>/../wp-bootstrap-starter-child/assets/images/other-posts-image-1.png"
                                                         alt=""> -->
 
@@ -609,7 +609,7 @@ get_header(); ?>
                                                             
                                                             the_post_thumbnail('post-thumbnail', 
                                                                 array(
-                                                                    'class' => 'img-fluid w-100 h-100',
+                                                                    'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
                                                                     'alt'   => $altTitle,
                                                             ));
                                                         ?>

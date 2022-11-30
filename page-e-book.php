@@ -110,17 +110,17 @@ get_header(); ?>
                                                 <div class="col-12">
                                                     <a 
                                                     class="l-digital__download u-line-height-100 hover:u-opacity-8 d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-primary p-3" 
-                                                    href=" <?php 
-                        $args = array(
-                            'posts_per_page' => -1,
-                            'post_type'      => 'ebook',
-                            'order'          => 'DESC'
-                        );
+                                                    href=" <?php get_field('arquivo')
+                        // $args = array(
+                        //     'posts_per_page' => -1,
+                        //     'post_type'      => 'ebook',
+                        //     'order'          => 'DESC'
+                        // );
 
-                        $ebooks = new WP_Query( $args );
+                        // $ebooks = new WP_Query( $args );
 
-                        if( $ebooks->have_posts() ) :
-                            while( $ebooks->have_posts() ) : $ebooks->the_post();
+                        // if( $ebooks->have_posts() ) :
+                        //     while( $ebooks->have_posts() ) : $ebooks->the_post();
                     ?>" 
                                                     target="_blank" 
                                                     rel="noreferrer noopener">

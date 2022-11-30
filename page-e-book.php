@@ -131,9 +131,7 @@ get_header(); ?>
                                         </div>
                                     </div>
                                 </div>
-                    <?php   endwhile;
-                        endif;
-                    ?>
+                    
                     <!-- loop -->
                 </div>
             </div>

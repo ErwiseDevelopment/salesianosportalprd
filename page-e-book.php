@@ -94,13 +94,14 @@ get_header(); ?>
                                             
                                             <p class="l-digital__book__tag u-font-weight-extrabold u-color-folk-theme mb-2">
                                                 // 
-                                                <php
+                                                <?php 
+                                                
                                                     $categories = get_the_terms( get_the_ID(), 'ebook-categoria' ); 
                                                     echo $categories[0]->name;
                                                 ?>
                                             </p>
 
-                                            <h6 class="l-digital__book__title u-font-size-12 u-font-weight-extrabold mb-4">
+                                            <h6 class="l-digital__book__title u-font-size-15 u-font-weight-extrabold mb-4">
                                                 
                                                 <?php the_title() ?>
                                             </h6>
@@ -109,7 +110,7 @@ get_header(); ?>
 
                                                 <div class="col-12">
                                                     <a 
-                                                    class="l-digital__download u-line-height-100 hover:u-opacity-8 d-block u-font-size-15 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-primary p-3" 
+                                                    class="l-digital__download u-line-height-100 hover:u-opacity-8 d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-primary p-3" 
                                                     href=" <?php echo get_field('arquivo')
                         // $args = array(
                         //     'posts_per_page' => -1,

@@ -97,7 +97,7 @@ get_header(); ?>
                                                 <?php 
                                                 
                                                     $categories = get_the_terms( get_the_ID(), 'ebook-categoria' ); 
-                                                    echo $categories->name;
+                                                    echo $categories[1]->name;
                                                     
                                                 
                                                 ?>

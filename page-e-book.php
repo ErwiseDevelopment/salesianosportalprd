@@ -110,7 +110,7 @@ get_header(); ?>
                                                 <div class="col-12">
                                                     <a 
                                                     class="l-digital__download u-line-height-100 hover:u-opacity-8 d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-primary p-3" 
-                                                    href=" <?php
+                                                    href=" <?php 
                         $args = array(
                             'posts_per_page' => -1,
                             'post_type'      => 'ebook',
@@ -142,7 +142,9 @@ get_header(); ?>
 </section>
 <!-- end ebooks -->
 
-<?php endwhile; ?>
+<?php  endwhile; endif?>
+
+<?php  endwhile; ?>
 
 </div><!-- #main -->
 </section><!-- #primary -->

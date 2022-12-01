@@ -234,6 +234,21 @@ function my_filter_post($data, $post, $context) {
     return $data;
 }
 
+function get_categories_highlight() {
+    $categories = array(
+        'Portal',
+        'Institucional',
+        'Paróquia',
+        'Ensino',
+        'Pastoral Juvenil',
+        'Vocacional',
+        'Obras Sociais',
+        'Gráfica'
+    );
+
+    return $categories;
+}
+
 //Função para organizar Calendário Salesiano
 function mantenedora_cmp( $a, $b ) {
     $t1 = strtotime($a['data']);

@@ -133,7 +133,7 @@ get_header(); ?>
                                                         $post_categories = implode(', ', $categories_current);
                                                     }
 
-                                                    echo var_dump( $c) //$editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                                    echo var_dump( $cats) //$editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
                                                     ?>
                                             </p>
 

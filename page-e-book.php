@@ -97,7 +97,7 @@ get_header(); ?>
                                                 <?php
                                                     $cats = array();
                                                     $categories_current = array();
-                                                    $count = 0;
+                                                   // $count = 0;
 
                                                     foreach (get_the_category($post_id) as $c) {
                                                         $cat = get_category($c);
@@ -133,7 +133,7 @@ get_header(); ?>
                                                         $post_categories = implode(', ', $categories_current);
                                                     }
 
-                                                    echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                                    echo var_dump($categories_current) //$editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
                                                     ?>
                                             </p>
 

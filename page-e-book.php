@@ -93,48 +93,8 @@ get_header(); ?>
                                         <div class="col-md-10">
                                             
                                             <p class="l-digital__book__tag u-font-weight-extrabold u-color-folk-theme mb-2">
-                                                // 
-                                                <?php
-                                                    $cats = array();
-                                                    $categories_current = array();
-                                                   // $count = 0;
-
-                                                    foreach (get_the_category($post_id) as $c) {
-                                                        $cat = get_category($c);
-                                                        array_push($cats, $cat->name);
-                                                    }
-
-                                                    foreach ($cats as $cat) {
-                                                        foreach (get_categories_highlight() as $editorial) {
-                                                            if ($cat == $editorial)
-                                                                $editorial_current = $cat;
-                                                        }
-                                                    }
-
-                                                    foreach ($cats as $cat) {
-                                                        if ($editorial_current) {
-                                                            if ($cat != $editorial_current) {
-                                                                array_push($categories_current, $cat);
-                                                                $count++;
-
-                                                                if ($count == 1)
-                                                                    break;
-                                                            }
-                                                        } else {
-                                                            array_push($categories_current, $cat);
-                                                            $count++;
-
-                                                            if ($count == 3)
-                                                                break;
-                                                        }
-                                                    }
-
-                                                    if (sizeOf($categories_current) > 0) {
-                                                        $post_categories = implode(', ', $categories_current);
-                                                    }
-
-                                                    echo var_dump( $cats) //$editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
-                                                    ?>
+                                                // E-book
+                                               
                                             </p>
 
                                             <h6 class="l-digital__book__title u-font-size-15 u-font-weight-extrabold mb-4">

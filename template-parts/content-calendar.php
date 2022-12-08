@@ -138,7 +138,7 @@
 						<?php   else : ?>
                                     <div class="swiper-slide justify-content-start">
                                         <p class="u-color-folk-black">
-                                        <?php echo $agendas; ?>.<?php echo $date_agenda; ?>
+                                       
                                         </p>
                                     </div>
                         <?php   endif;?>
@@ -231,7 +231,7 @@
                         ?>
                     </div>
                 </div>
-                <!-- end swipers -->
+                <!-- end swiper -->
             </div>
 
             <div class="col-12 mb-5 my-md-5">

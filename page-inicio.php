@@ -531,7 +531,7 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'illustration' ) ?>
 <!-- end illustration -->
 
-<!-- other posts -->
+<!-- other postss -->
 <section class="l-other-posts u-border-top-2 u-border-color-secondary">
 
     <div class="container"> 

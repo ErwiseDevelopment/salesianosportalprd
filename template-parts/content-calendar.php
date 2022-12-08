@@ -231,7 +231,7 @@
                         ?>
                     </div>
                 </div>
-                <!-- end swiper -->
+                <!-- end swipers -->
             </div>
 
             <div class="col-12 mb-5 my-md-5">

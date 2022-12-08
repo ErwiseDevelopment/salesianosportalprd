@@ -111,7 +111,7 @@
                                                 destaques:
                                             </h6>
 
-                                            <!-- loop -->
+                                            <!-- looap -->
                                             <?php if ( $agendas->have_posts() ) : ?>
                                                  <?php while( $agendas->have_posts()) : $agendas->the_post(); ?>	
 											        <?php $date_agenda = get_field('data_custom_post_agenda_inicio', $post->ID); ?>

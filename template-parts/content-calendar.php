@@ -135,13 +135,11 @@
                                             </h6>
 
                                             <!-- loop -->
-                                            <?php 
-												$count_item = 0;
-
+                                            <?php
                                                 foreach ( $array_agendas as $agenda ) :
                                                     list($data_year, $data_month, $data_day) = explode("-", $agenda['data']);
 													if ( $date_current == $data_month ) :  ?>
-                                                        <a href="<?php the_permalink()?>"></a>
+                                                        <a href="<?php the_permalink()?>">
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                 <!-- // 02-03 -->

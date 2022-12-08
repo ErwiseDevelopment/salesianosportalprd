@@ -66,8 +66,8 @@
                         <!-- end swiper -->
 
                         <!-- arrow -->
-                        <div class="swiper-button-prev swiper-button-prev-calendar js-swiper-button-prev-calendar js-swiper-find-month-active"></div>
-                        <div class="swiper-button-next swiper-button-next-calendar js-swiper-button-next-calendar js-swiper-find-month-active"></div>
+                        <!-- <div class="swiper-button-prev swiper-button-prev-calendar js-swiper-button-prev-calendar js-swiper-find-month-active"></div>
+                        <div class="swiper-button-next swiper-button-next-calendar js-swiper-button-next-calendar js-swiper-find-month-active"></div> -->
                     </div>
                 </div>
             </div>
@@ -107,12 +107,6 @@
                                             'compare'		=> '>=',
                                             'type'			=> 'DATE',
                                         ),
-                                        array (
-                                            'key'			=> 'data_custom_post_agenda_inicio',
-                                            'value'			=> $data_final,
-                                            'compare'		=> '<=',
-                                            'type'			=> 'DATE',
-                                        ),
                                     ),
                                 );
                                 
@@ -145,19 +139,9 @@
 												$count_item = 0;
 
                                                 foreach ( $array_agendas as $agenda ) :
-                                                    // echo "<pre>";
-                                                    // var_dump($agenda['data']);
-                                                    // echo "</pre>";
                                                     list($data_year, $data_month, $data_day) = explode("-", $agenda['data']);
-													// $count_item++;
-													// echo  'Fora do if' . $count_item . '<br>';
-                                                    // echo 'Título: ' . $agenda['title'] . '<br>';
-                                                    // echo 'Month: ' . $data_month . '<br>';
-                                                    // echo 'Month current: ' . $data_current . '<br>';
-
-                                                    if ( $date_current == $data_month ) : 
-                                                        $count = 0;
-                                            ?>
+													if ( $date_current == $data_month ) :  ?>
+                                                        <a href="<?php the_permalink()?>"></a>
                                                         <div class="my-2">
                                                             <p class="l-calendar__text u-font-weight-extrabold u-color-folk-primary mb-0">
                                                                 <!-- // 02-03 -->
@@ -168,19 +152,10 @@
                                                                 <!-- Conselho Inspetorial – Porto Alegre/RS -->
                                                                 <?php echo $agenda["title"]; ?>
                                                             </p>
-                                                        </div>     
-                                            <?php 
-                                                    else : $count++; 
-                                                        if( $count == $post_agenda_count_current ) {
-                                                            $count = 0;
-                                                            echo '<p>Não há eventos!</p>';
-                                                        }
-                                            ?>
+                                                        </div>   
+                                                    </a>  
+                                           
                                             <?php   endif;
-
-                                                    if( $count_item == 5 )
-                                                        echo 'Count: ' . $count_item;
-                                                        // break;
                                                 endforeach; 
                                             ?>
                                             <!-- end loop -->
